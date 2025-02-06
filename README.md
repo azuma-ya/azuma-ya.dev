@@ -1,1 +1,1 @@
-# Azuma-ya.life# azuma-ya.life
+# Azuma-ya.life
