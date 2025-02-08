@@ -1,19 +1,20 @@
-import type { Config } from "tailwindcss"
-import tailwindcssAnimate from "tailwindcss-animate"
-import { fontFamily } from "tailwindcss/defaultTheme"
+import tailwindcssTypography from "@tailwindcss/typography";
+import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: ["class", "class"],
   content: [
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
+    "features/**/*.{ts,tsx}",
     "../../packages/ui/src/components/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        mono: ["var(--font-mono)", ...fontFamily.mono],
+        notojp: ["var(--font-noto-sans-jp)", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -49,15 +50,47 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
-  plugins: [tailwindcssAnimate],
-} satisfies Config
+  plugins: [tailwindcssAnimate, tailwindcssTypography],
+} satisfies Config;
 
-export default config
+export default config;
