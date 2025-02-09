@@ -15,6 +15,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
     "@repo/ui": "*",
+    "@repo/markdown": "*",
     "contentlayer": "^0.3.4",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
@@ -25,6 +26,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^9.0.3",
+    "react-shiki": "^0.2.4",
     "react-syntax-highlighter": "^15.6.1",
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",

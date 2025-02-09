@@ -26,7 +26,11 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html
+      lang="ja"
+      suppressHydrationWarning
+      className="scroll-pt-(--header-height) scroll-smooth"
+    >
       <body
         suppressHydrationWarning
         className={cn(notoSansJP.className, "antialiased")}

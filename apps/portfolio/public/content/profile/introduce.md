@@ -13,3 +13,15 @@ socials:
 数学全般に興味があり、現在は情報理論を勉強しています。
 
 :::
+
+:::section
+
+# skill
+
+:::
+
+:::section
+
+# Career
+
+:::

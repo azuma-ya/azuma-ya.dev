@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "@repo/ui/globals.css";
+
+.markdown {
+  @apply text-foreground leading-normal break-words text-xs;
+
+  > * {
+    @apply mb-2;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-6 font-semibold relative;
+
+    &:hover > a {
+      @apply opacity-100;
+    }
+  }
+
+  h1,
+  h2 {
+    @apply text-base leading-tight;
+  }
+
+  h3 {
+    @apply text-sm leading-snug;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply text-xs leading-none;
+  }
+
+  li {
+    + li {
+      @apply mt-1;
+    }
+
+    > p + p {
+      @apply mt-6;
+    }
+  }
+
+  strong {
+    @apply font-semibold;
+
+    a {
+      @apply font-bold;
+    }
+  }
+
+  a {
+    @apply font-semibold underline;
+  }
+
+  blockquote {
+    @apply border-l-4 border-border pl-4 pr-4 text-muted-foreground;
+  }
+
+  ul {
+    @apply pl-8 list-disc;
+  }
+
+  ol {
+    @apply pl-8 list-decimal;
+  }
+
+  kbd {
+    @apply inline-block rounded border px-1 py-1 align-middle font-normal font-mono shadow;
+  }
+
+  table {
+    @apply border-border;
+  }
+
+  th {
+    @apply border py-1 px-3 bg-muted;
+  }
+
+  td {
+    @apply border py-1 px-3;
+  }
+
+  hr {
+    @apply my-4;
+  }
+
+  pre {
+    @apply overflow-auto;
+  }
+
+  .flex > * {
+    @apply flex-1 min-w-0;
+  }
+
+  .contains-task-list {
+    @apply list-none;
+  }
+
+  > .contains-task-list {
+    @apply pl-0;
+  }
+}
+
+.defaultStyles {
+  pre {
+    @apply rounded-md!;
+  }
+}
+
+.katex-display {
+  @apply overflow-x-auto;
+}

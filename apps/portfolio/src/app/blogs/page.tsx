@@ -29,8 +29,11 @@ const BlogListPage = () => {
 
   return (
     <BaseLayout title="Blogs">
-      {sortedGroupedBlogs.map(([year, blogs]) => (
-        <YearSection key={year} year={year}>
+      <div className="hidden last:flex items-center justify-center h-[calc(100vh-200px)] text-xs">
+        No blogs yet..
+      </div>
+      {sortedGroupedBlogs.map(([year, blogs], index) => (
+        <YearSection key={year} index={index} year={year}>
           <ul>
             {blogs.map((blog) => (
               <li key={blog.title}>

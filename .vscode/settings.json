@@ -4,5 +4,8 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
-  "editor.defaultFormatter": "biomejs.biome"
+  "editor.defaultFormatter": "biomejs.biome",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }

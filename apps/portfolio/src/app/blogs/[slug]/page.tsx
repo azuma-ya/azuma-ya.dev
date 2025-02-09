@@ -1,8 +1,9 @@
 import { HeaderSpacing } from "@/components/base/header";
-import Markdown from "@/components/data-display/markdown";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
+import { Markdown } from "@repo/markdown/components/markdown";
+import { Badge } from "@repo/ui/components/data-display/badge";
 import { Container } from "@repo/ui/components/layout/container";
 import { format } from "date-fns";
 import { notFound } from "next/navigation";
@@ -48,19 +49,20 @@ const BlogDetailPage = async ({ params }: Props) => {
   return (
     <Container maxWidth="sm" className="space-y-2">
       <HeaderSpacing />
-      <article className="">
-        <h1>{post.title}</h1>
-        <div className="flex gap-2">
-          {post.tags.map((tag) => (
-            <span key={tag} className="text-sm text-gray-500">
-              #{tag}
-            </span>
-          ))}
+      <article className="space-y-1">
+        <div className="flex flex-col">
+          <h1 className="text-base font-bold">{post.title}</h1>
+          <time className="text-xs text-foreground/50">
+            {format(post.createdAt, "yyyy-MM-dd")}
+          </time>
         </div>
-        <p className="text-gray-600">{post.description}</p>
-        <time className="text-gray-500">
-          {format(post.createdAt, "yyyy-MM-dd")}
-        </time>
+        <ul className="flex gap-2">
+          {post.tags.map((tag) => (
+            <li key={tag}>
+              <Badge size="sm">{tag}</Badge>
+            </li>
+          ))}
+        </ul>
         <Markdown>{post.content}</Markdown>
       </article>
     </Container>

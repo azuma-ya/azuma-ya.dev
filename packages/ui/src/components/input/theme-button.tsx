@@ -1,16 +1,16 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button, type ButtonProps } from "@repo/ui/components/input/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@repo/ui/components/navigation/dropdown-menu.js";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-
-import { Button, type ButtonProps } from "@repo/ui/components/input/button";
-import { cn } from "@repo/ui/lib/utils.js";
+} from "@repo/ui/components/navigation/dropdown-menu";
+import { cn } from "@repo/ui/lib/utils";
 
 const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
   const { setTheme, theme } = useTheme();

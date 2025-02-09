@@ -1,13 +1,20 @@
 import type { ReactNode } from "react";
 
 interface Props {
+  index: number;
   year: string;
   children: ReactNode;
 }
 
-export const YearSection = ({ year, children }: Props) => {
+export const YearSection = ({ index, year, children }: Props) => {
   return (
-    <section className="space-y-1">
+    <section
+      className="space-y-1 animate-fade-in opacity-0"
+      style={{
+        animationDelay: `${index * 0.2}s`,
+        animationFillMode: "forwards",
+      }}
+    >
       <h2 className="text-xs font-bold">{year}</h2>
       {children}
     </section>
