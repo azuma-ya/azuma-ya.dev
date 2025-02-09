@@ -1,5 +1,5 @@
 import { Markdown } from "@repo/markdown/components/markdown";
-import { Separator } from "@repo/ui/components/element/separator";
+import { Separator } from "@repo/ui/components/data-display/separator";
 import { Container } from "@repo/ui/components/layout/container";
 
 import { ProfileSection } from "@/features/profile/components/profile-section";

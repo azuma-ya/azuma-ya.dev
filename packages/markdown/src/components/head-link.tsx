@@ -17,7 +17,7 @@ export const HeadLink = ({
   return (
     <a
       className={cn(
-        "absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 duration-300",
+        "absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 duration-300 hidden md:inline",
         className,
       )}
       {...props}

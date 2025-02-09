@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
+
+import { Separator } from "@repo/ui/components/data-display/separator";
 import {
   Sheet,
   SheetContent,
@@ -7,12 +10,10 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from "@repo/ui/components/element/sheet";
+} from "@repo/ui/components/feedback/sheet";
 import { Button } from "@repo/ui/components/input/button";
 import { cn } from "@repo/ui/lib/utils";
-import { usePathname, useRouter } from "next/navigation";
 
-import { Separator } from "@repo/ui/components/element/separator";
 import useMainSidebar from "../hooks/use-main-sidebar";
 
 export const MainSidebar = () => {

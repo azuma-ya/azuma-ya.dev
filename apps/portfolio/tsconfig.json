@@ -19,7 +19,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
+    ".contentlayer/generated",
+    "src/features/sidebar/components/main-sidebar.tsx"
   ],
   "exclude": ["node_modules"]
 }

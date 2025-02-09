@@ -44,7 +44,7 @@ export const Header = () => {
           className="md:hidden"
           onClick={onOpen}
         >
-          <Menu />
+          <Menu className="size-5!" />
         </Button>
         <nav className="items-center gap-2 hidden md:flex">
           {routes.map((route) => (

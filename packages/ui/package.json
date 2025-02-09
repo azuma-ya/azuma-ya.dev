@@ -75,6 +75,7 @@
     "./lib/*": "./src/lib/*.ts",
     "./components/data-display/*": "./src/components/data-display/*.tsx",
     "./components/element/*": "./src/components/element/*.tsx",
+    "./components/feedback/*": "./src/components/feedback/*.tsx",
     "./components/input/*": "./src/components/input/*.tsx",
     "./components/layout/*": "./src/components/layout/*.tsx",
     "./components/navigation/*": "./src/components/navigation/*.tsx",

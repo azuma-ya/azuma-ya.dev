@@ -6,6 +6,9 @@
       "@repo/ui/*": ["./src/*"]
     }
   },
-  "include": ["."],
+  "include": [
+    ".",
+    "../../apps/portfolio/src/features/sidebar/components/main-sidebar.tsx"
+  ],
   "exclude": ["node_modules", "dist"]
 }
