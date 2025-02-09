@@ -17,12 +17,12 @@ export const HeadLink = ({
   return (
     <a
       className={cn(
-        "absolute -left-5 top-1/2 -translate-y-1/2 opacity-0 duration-300",
+        "absolute -left-6 top-1/2 -translate-y-1/2 opacity-0 duration-300",
         className,
       )}
       {...props}
     >
-      <Link className="size-3 text-muted-foreground" />
+      <Link className="size-4 text-muted-foreground" />
     </a>
   );
 };

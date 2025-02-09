@@ -2,7 +2,7 @@
 @import "@repo/ui/globals.css";
 
 .markdown {
-  @apply text-foreground leading-normal break-words text-xs;
+  @apply text-foreground leading-normal break-words text-base;
 
   > * {
     @apply mb-2;
@@ -18,7 +18,7 @@
   h4,
   h5,
   h6 {
-    @apply mt-6 font-semibold relative;
+    @apply mt-8 font-semibold relative;
 
     &:hover > a {
       @apply opacity-100;
@@ -27,17 +27,17 @@
 
   h1,
   h2 {
-    @apply text-base leading-tight;
+    @apply text-xl leading-tight;
   }
 
   h3 {
-    @apply text-sm leading-snug;
+    @apply text-lg leading-snug;
   }
 
   h4,
   h5,
   h6 {
-    @apply text-xs leading-none;
+    @apply text-base leading-none;
   }
 
   li {
@@ -67,7 +67,7 @@
   }
 
   ul {
-    @apply pl-8 list-disc;
+    @apply pl-8 list-(--my-marker);
   }
 
   ol {

@@ -2,6 +2,7 @@ import { HeaderSpacing } from "@/components/base/header";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
+import { getProfile } from "@/features/profile/lib/get-profile";
 import { Markdown } from "@repo/markdown/components/markdown";
 import { Badge } from "@repo/ui/components/data-display/badge";
 import { Container } from "@repo/ui/components/layout/container";
@@ -32,8 +33,10 @@ export const generateMetadata = async ({ params }: Props) => {
     return notFound();
   }
 
+  const profile = getProfile();
+
   return {
-    title: blog.title,
+    title: `${blog.title} | ${profile.name}'s Portfolio`,
     description: blog.description,
   };
 };
@@ -47,12 +50,12 @@ const BlogDetailPage = async ({ params }: Props) => {
   }
 
   return (
-    <Container maxWidth="sm" className="space-y-2">
+    <Container maxWidth="md" className="space-y-2">
       <HeaderSpacing />
-      <article className="space-y-1">
+      <article className="space-y-4">
         <div className="flex flex-col">
-          <h1 className="text-base font-bold">{post.title}</h1>
-          <time className="text-xs text-foreground/50">
+          <h1 className="text-2xl font-bold">{post.title}</h1>
+          <time className="text-foreground/50">
             {format(post.createdAt, "yyyy-MM-dd")}
           </time>
         </div>

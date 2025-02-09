@@ -9,13 +9,13 @@ interface Props {
 export const YearSection = ({ index, year, children }: Props) => {
   return (
     <section
-      className="space-y-1 animate-fade-in opacity-0"
+      className="space-y-2 animate-fade-in opacity-0"
       style={{
         animationDelay: `${index * 0.2}s`,
         animationFillMode: "forwards",
       }}
     >
-      <h2 className="text-xs font-bold">{year}</h2>
+      <h2 className="text-lg font-bold">{year}</h2>
       {children}
     </section>
   );

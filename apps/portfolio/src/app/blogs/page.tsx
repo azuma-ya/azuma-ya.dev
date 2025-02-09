@@ -2,6 +2,16 @@ import { BaseLayout } from "@/components/layout/base-layout";
 import { BlogItem } from "@/features/blog/components/blog-item";
 import { YearSection } from "@/features/blog/components/year-section";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
+import { getProfile } from "@/features/profile/lib/get-profile";
+
+export const generateMetadata = () => {
+  const profile = getProfile();
+
+  return {
+    title: `Blogs | ${profile.name}'s Portfolio`,
+    description: `${profile.name}のブログ一覧ページです。`,
+  };
+};
 
 const BlogListPage = () => {
   const blogs = getAllBlogs();
@@ -29,12 +39,12 @@ const BlogListPage = () => {
 
   return (
     <BaseLayout title="Blogs">
-      <div className="hidden last:flex items-center justify-center h-[calc(100vh-200px)] text-xs">
+      <div className="hidden last:flex items-center justify-center h-[calc(100vh-16rem)]">
         No blogs yet..
       </div>
       {sortedGroupedBlogs.map(([year, blogs], index) => (
         <YearSection key={year} index={index} year={year}>
-          <ul>
+          <ul className="space-y-1">
             {blogs.map((blog) => (
               <li key={blog.title}>
                 <BlogItem data={blog} />

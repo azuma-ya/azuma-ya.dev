@@ -21,6 +21,7 @@ import { Section } from "./section";
 
 import "@repo/markdown/globals.css";
 import "katex/dist/katex.min.css";
+import remarkBreaks from "remark-breaks";
 
 type CustomComponents = Components & {
   flex: typeof FlexBox;
@@ -40,6 +41,7 @@ export const Markdown = ({ children }: MarkdownProps) => {
       remarkPlugins={[
         remarkGfm,
         remarkMath,
+        remarkBreaks,
         remarkDirective,
         remarkSection,
         remarkCallout,

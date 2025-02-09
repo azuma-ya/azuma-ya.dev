@@ -1,6 +1,6 @@
 const WorkListPage = () => {
   return (
-    <div className="flex h-[calc(100vh-200px)] items-center justify-center text-xs">
+    <div className="flex h-[calc(100vh-16rem)] items-center justify-center">
       Coming soon...
     </div>
   );

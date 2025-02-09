@@ -9,9 +9,9 @@ interface Props {
 
 export const BaseLayout = ({ title, children }: Props) => {
   return (
-    <Container maxWidth="sm" className="space-y-2">
+    <Container maxWidth="md" className="space-y-2">
       <HeaderSpacing />
-      <h1 className="text-sm font-bold">{title}</h1>
+      <h1 className="text-2xl font-bold">{title}</h1>
       {children}
     </Container>
   );

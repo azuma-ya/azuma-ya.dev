@@ -46,7 +46,8 @@
 
 @layer base {
   :root {
-    --header-height: 2.5rem;
+    --header-height: 4rem;
+    --my-marker: "-   ";
 
     --background: var(--color-neutral-50);
     --foreground: var(--color-neutral-900);

@@ -19,8 +19,8 @@ const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant={variant || "outline"} size={size || "icon"} {...props}>
-          <Sun className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun className="size-5! rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute size-5! rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -28,7 +28,6 @@ const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
         <DropdownMenuItem
           onClick={() => setTheme("light")}
           className={cn(
-            "text-xs",
             theme === "light" && "text-blue-500 focus:text-blue-500",
           )}
         >
@@ -37,7 +36,6 @@ const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
         <DropdownMenuItem
           onClick={() => setTheme("dark")}
           className={cn(
-            "text-xs",
             theme === "dark" && "text-blue-500 focus:text-blue-500",
           )}
         >
@@ -46,7 +44,6 @@ const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
         <DropdownMenuItem
           onClick={() => setTheme("system")}
           className={cn(
-            "text-xs",
             theme === "system" && "text-blue-500 focus:text-blue-500",
           )}
         >

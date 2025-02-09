@@ -12,7 +12,7 @@ interface SectionProps {
 export const Section = ({ className, id, node, ...props }: SectionProps) => {
   return (
     <section
-      className={cn("space-y-1 animate-fade-in opacity-0", className)}
+      className={cn("space-y-4 animate-fade-in opacity-0", className)}
       style={{
         animationDelay: `${Number.parseInt(id || "0") * 0.2}s`,
         animationFillMode: "forwards",

@@ -11,7 +11,7 @@ export const BlogItem = ({ data }: Props) => {
   return (
     <Button
       variant="ghost"
-      className="w-full h-fit py-1 justify-start text-xs font-normal text-wrap whitespace-normal group"
+      className="w-full h-fit py-1 justify-start text-base font-normal text-wrap whitespace-normal group"
       asChild
     >
       {data.type === "InternalBlog" ? (
