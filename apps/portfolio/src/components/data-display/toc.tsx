@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from "@repo/ui/lib/utils";
 import { type HTMLAttributes, useEffect } from "react";
 
 import * as tocbot from "tocbot";
+
+import { cn } from "@repo/ui/lib/utils";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 

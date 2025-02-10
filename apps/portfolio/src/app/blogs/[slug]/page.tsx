@@ -1,14 +1,16 @@
+import { format } from "date-fns";
+import { notFound } from "next/navigation";
+
+import { Markdown } from "@repo/markdown/components/markdown";
+import { Badge } from "@repo/ui/components/data-display/badge";
+import { BackButton } from "@repo/ui/components/input/back-button";
+import { Container } from "@repo/ui/components/layout/container";
+
 import { Toc } from "@/components/data-display/toc";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
 import { getProfile } from "@/features/profile/lib/get-profile";
-import { Markdown } from "@repo/markdown/components/markdown";
-import { Badge } from "@repo/ui/components/data-display/badge";
-import { BackButton } from "@repo/ui/components/input/back-button";
-import { Container } from "@repo/ui/components/layout/container";
-import { format } from "date-fns";
-import { notFound } from "next/navigation";
 
 interface Props {
   params: Promise<{
@@ -19,11 +21,17 @@ interface Props {
 export const generateStaticParams = () => {
   const posts = getAllBlogs();
 
-  return posts
-    .filter((post): post is InternalBlog => post.type === "InternalBlog")
-    .map((post) => ({
-      slug: post.slug,
-    }));
+  const internalPosts = posts.filter(
+    (post): post is InternalBlog => post.type === "InternalBlog",
+  );
+
+  if (internalPosts.length === 0) {
+    return notFound();
+  }
+
+  return internalPosts.map((post) => ({
+    slug: post.slug,
+  }));
 };
 
 export const generateMetadata = async ({ params }: Props) => {
@@ -71,7 +79,6 @@ const BlogDetailPage = async ({ params }: Props) => {
               </li>
             ))}
           </ul>
-
           <Markdown>{post.content}</Markdown>
         </article>
       </div>

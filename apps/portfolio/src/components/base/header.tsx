@@ -1,6 +1,7 @@
-import { MainSidebarButton } from "@/features/sidebar/components/main-sidebar-button";
 import { ThemeButton } from "@repo/ui/components/input/theme-button";
 import { Container } from "@repo/ui/components/layout/container";
+
+import { MainSidebarButton } from "@/features/sidebar/components/main-sidebar-button";
 import { Navigation } from "./navigation";
 
 export const Header = () => {

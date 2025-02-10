@@ -1,8 +1,9 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
+
 import { Button } from "@repo/ui/components/input/button";
 import { cn } from "@repo/ui/lib/utils";
-import { usePathname, useRouter } from "next/navigation";
 
 type Props = {
   orientation?: "horizontal" | "vertical";

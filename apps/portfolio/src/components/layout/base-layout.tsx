@@ -1,5 +1,6 @@
-import { Container } from "@repo/ui/components/layout/container";
 import type { ReactNode } from "react";
+
+import { Container } from "@repo/ui/components/layout/container";
 
 interface Props {
   title: string;

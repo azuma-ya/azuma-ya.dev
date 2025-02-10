@@ -1,6 +1,8 @@
-import { Button } from "@repo/ui/components/input/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+
+import { Button } from "@repo/ui/components/input/button";
+
 import type { Blog } from "../types/blog";
 
 interface Props {

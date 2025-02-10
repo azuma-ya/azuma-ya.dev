@@ -1,7 +1,9 @@
 "use client";
 
-import { Button } from "@repo/ui/components/input/button";
 import { Menu } from "lucide-react";
+
+import { Button } from "@repo/ui/components/input/button";
+
 import useMainSidebar from "../hooks/use-main-sidebar";
 
 export const MainSidebarButton = () => {

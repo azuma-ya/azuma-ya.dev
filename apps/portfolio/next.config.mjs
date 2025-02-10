@@ -1,3 +1,4 @@
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 import nextBundleAnalyzer from "@next/bundle-analyzer";
 import { withContentlayer } from "next-contentlayer";
 
@@ -8,6 +9,7 @@ const withBundleAnalyzer = nextBundleAnalyzer({
 const nextConfig = withBundleAnalyzer(
   withContentlayer({
     transpilePackages: ["@repo/ui"],
+    output: "export",
   }),
 );
 
