@@ -10,7 +10,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "check": "biome check --write *"
+    "check": "biome check --write *",
+    "pages:build": "bunx @cloudflare/next-on-pages",
+    "preview": "bun run pages:build && wrangler pages dev",
+    "deploy": "bun run pages:build && wrangler pages deploy"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
@@ -39,6 +42,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@repo/typescript-config": "*",
     "@tailwindcss/postcss": "^4.0.4",
     "@types/node": "^22",
