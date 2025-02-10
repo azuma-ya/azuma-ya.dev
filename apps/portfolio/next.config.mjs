@@ -8,7 +8,6 @@ const withBundleAnalyzer = nextBundleAnalyzer({
 const nextConfig = withBundleAnalyzer(
   withContentlayer({
     transpilePackages: ["@repo/ui"],
-    output: "export",
   }),
 );
 
