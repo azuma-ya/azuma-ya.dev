@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
+    "@next/third-parties": "^15.1.6",
     "@repo/markdown": "*",
     "@repo/ui": "*",
     "contentlayer": "^0.3.4",

@@ -1,12 +1,14 @@
-import { cn } from "@repo/ui/lib/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Noto_Sans_JP } from "next/font/google";
 
+import { cn } from "@repo/ui/lib/utils";
+
+import { Footer } from "@/components/base/footer";
 import { Header } from "@/components/base/header";
 import SheetProvider from "@/providers/sheet-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 import "./globals.css";
-import { Footer } from "@/components/base/footer";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -31,6 +33,9 @@ const RootLayout = ({
       suppressHydrationWarning
       className="scroll-pt-(--header-height) scroll-smooth"
     >
+      <head>
+        <GoogleAnalytics gaId={process.env.GA_ID || ""} />
+      </head>
       <body
         suppressHydrationWarning
         className={cn(notoSansJP.className, "antialiased")}
