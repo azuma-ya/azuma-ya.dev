@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
-    "@repo/ui": "*",
     "@repo/markdown": "*",
+    "@repo/ui": "*",
     "contentlayer": "^0.3.4",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
@@ -34,6 +34,7 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",
+    "tocbot": "^4.34.0",
     "zod": "^3.24.1",
     "zustand": "^5.0.3"
   },

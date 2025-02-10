@@ -6,7 +6,10 @@ interface FlexBoxProps extends HTMLAttributes<HTMLDivElement> {}
 export const FlexBox = ({ className, ...props }: FlexBoxProps) => {
   return (
     <div
-      className={cn("flex gap-2 justify-between items-center", className)}
+      className={cn(
+        "md:flex block gap-4 justify-between items-center",
+        className,
+      )}
       {...props}
     />
   );

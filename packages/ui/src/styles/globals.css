@@ -47,7 +47,7 @@
 @layer base {
   :root {
     --header-height: 4rem;
-    --my-marker: "-   ";
+    --my-marker: "- ";
 
     --background: var(--color-neutral-50);
     --foreground: var(--color-neutral-900);
@@ -171,5 +171,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
   }
 }

@@ -40,6 +40,10 @@
     @apply text-base leading-none;
   }
 
+  p {
+    @apply mt-4;
+  }
+
   li {
     + li {
       @apply mt-1;
@@ -79,7 +83,7 @@
   }
 
   table {
-    @apply border-border;
+    @apply border-border overflow-x-auto whitespace-nowrap block;
   }
 
   th {
@@ -94,8 +98,16 @@
     @apply my-4;
   }
 
+  code {
+    @apply bg-accent border border-border rounded-md px-2 py-0.5;
+  }
+
   pre {
     @apply overflow-auto;
+
+    code {
+      @apply p-0 bg-transparent border-none;
+    }
   }
 
   .flex > * {
@@ -118,5 +130,5 @@
 }
 
 .katex-display {
-  @apply overflow-x-auto;
+  @apply overflow-x-auto px-1;
 }

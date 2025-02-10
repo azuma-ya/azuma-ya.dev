@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.toc {
+  .toc-list .toc-list {
+    @apply border-l-2 border-muted ml-5;
+  }
+
+  .toc-link {
+    @apply flex text-sm w-[100%] py-1.5 relative pl-9 hover:text-foreground text-muted-foreground;
+    &:before {
+      @apply content-[''] w-[10px] h-[10px] border-2 border-card rounded-full top-3 left-4 bg-card absolute shadow-[0_0_0_2px_rgb(var(--border))];
+    }
+  }
+
+  .is-active-link {
+    @apply font-bold text-foreground;
+    &:before {
+      @apply bg-primary outline-primary shadow-[0_0_0_2px_rgb(var(--primary))];
+    }
+  }
+}

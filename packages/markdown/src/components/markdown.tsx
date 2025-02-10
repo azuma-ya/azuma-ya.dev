@@ -9,7 +9,6 @@ import remarkMath from "remark-math";
 
 import { rehypeHeadFormat } from "../rehype/rehype-head-format";
 import { rehypeHeadLinker } from "../rehype/rehype-head-linker";
-import { rehypeHeadingLevel } from "../rehype/rehype-heading-level";
 import { remarkCallout } from "../remark/remark-callout";
 import { remarkSection } from "../remark/remark-section";
 
@@ -22,14 +21,6 @@ import { Section } from "./section";
 import "@repo/markdown/globals.css";
 import "katex/dist/katex.min.css";
 import remarkBreaks from "remark-breaks";
-
-type CustomComponents = Components & {
-  flex: typeof FlexBox;
-  section: typeof Section;
-  callout: typeof Callout;
-  "callout-title": typeof CalloutTitle;
-  "head-link": typeof HeadLink;
-};
 
 interface MarkdownProps {
   children: string;
@@ -49,9 +40,9 @@ export const Markdown = ({ children }: MarkdownProps) => {
       ]}
       rehypePlugins={[
         rehypeKatex,
-        rehypeHeadFormat,
-        rehypeHeadingLevel,
         rehypeSlug,
+        rehypeHeadFormat,
+        // rehypeHeadingLevel,
         rehypeHeadLinker,
       ]}
       remarkRehypeOptions={{
@@ -60,7 +51,7 @@ export const Markdown = ({ children }: MarkdownProps) => {
           ...remarkCallout.handlers,
         },
       }}
-      className="markdown"
+      className="markdown min-w-0"
       components={
         {
           code: CodeHighlight,
@@ -69,7 +60,7 @@ export const Markdown = ({ children }: MarkdownProps) => {
           callout: Callout,
           "callout-title": CalloutTitle,
           "head-link": HeadLink,
-        } as CustomComponents
+        } as Components
       }
     >
       {children}
