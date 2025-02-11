@@ -1,5 +1,5 @@
 interface Props {
-  src: string;
+  src: string | ArrayBuffer;
   size: {
     width: number;
     height: number;
@@ -22,7 +22,7 @@ export const OgpImage = ({
       }}
     >
       <img
-        src={src}
+        src={src as unknown as string}
         alt="ogp"
         style={{
           width: "100%",

@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 
@@ -5,7 +8,6 @@ import { OgpImage } from "@/components/base/ogp-image";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
-import { dataurl } from "public/asset/ogp/template";
 
 export const size = {
   width: 1200,
@@ -36,14 +38,20 @@ export const generateStaticParams = () => {
 
 export default async function Image({ params }: Props) {
   const { slug } = await params;
+
   const blog = getBlog<InternalBlog>(slug);
 
   if (!blog) {
     return notFound();
   }
 
+  const logoData = await readFile(
+    join(process.cwd(), "public/asset/ogp/template.png"),
+  );
+  const logoSrc = Uint8Array.from(logoData).buffer;
+
   return new ImageResponse(
-    <OgpImage src={dataurl} size={size} title={blog.title} />,
+    <OgpImage src={logoSrc} size={size} title={blog.title} />,
     {
       ...size,
     },

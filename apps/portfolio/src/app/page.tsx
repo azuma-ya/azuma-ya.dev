@@ -11,6 +11,10 @@ export const generateMetadata = () => {
   return {
     title: `${profile.name}'s Portfolio`,
     description: `${profile.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+    openGraph: {
+      title: `${profile.name}'s Portfolio`,
+      description: `${profile.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+    },
   };
 };
 
