@@ -47,6 +47,10 @@ export const generateMetadata = async ({ params }: Props) => {
   return {
     title: `${blog.title} | ${profile.name}'s Portfolio`,
     description: blog.description,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+    },
   };
 };
 
