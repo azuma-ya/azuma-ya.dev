@@ -50,7 +50,12 @@ const BlogListPage = () => {
         <YearSection key={year} index={index} year={year}>
           <ul className="space-y-1">
             {blogs.map((blog) => (
-              <li key={blog.title}>
+              <li
+                key={
+                  (("slug" in blog && blog.slug) ||
+                    ("url" in blog && blog.url)) as string
+                }
+              >
                 <BlogItem data={blog} />
               </li>
             ))}

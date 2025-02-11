@@ -8,7 +8,7 @@ description: 'Azuma-ya.lifeが使用できるMarkdownの記法と使い方をま
 type: 'InternalBlog'
 ---
 
-## 1. 見出し
+## 見出し
 Markdown では `#` を使って見出しを作成できます。
 
 ```md
@@ -22,7 +22,7 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-## 2. 強調
+## 強調
 テキストを強調するには `*` または `_` を使用します。
 
 ```md
@@ -37,9 +37,9 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-## 3. リスト
+## リスト
 
-### 3.1. 箇条書きリスト（Unordered List）
+### 箇条書きリスト（Unordered List）
 ```md
 - リスト項目 1
   - ネストされた項目 1-1
@@ -54,7 +54,7 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-### 3.2. 番号付きリスト（Ordered List）
+### 番号付きリスト（Ordered List）
 ```md
 1. 項目 1
 2. 項目 2
@@ -71,7 +71,7 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-## 4. テーブル
+## テーブル
 ```md
 | 名前  | 年齢 | 職業 |
 |------|----|----|
@@ -88,9 +88,9 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-## 5. コードブロック
+## コードブロック
 
-### 5.1. インラインコード
+### インラインコード
 ```md
 これは `console.log("Hello World!");` という JavaScript のコードです。
 ```
@@ -99,7 +99,7 @@ Markdown では `#` を使って見出しを作成できます。
 
 ---
 
-### 5.2. シンタックスハイライト付きコードブロック
+### シンタックスハイライト付きコードブロック
 
 #### JavaScript
 ```js
@@ -152,7 +152,7 @@ int main() {
 
 ---
 
-## 6. 引用（Blockquote）
+## 引用（Blockquote）
 ```md
 > これは引用です。
 > Markdown では `>` を使って記述できます。
@@ -163,15 +163,24 @@ int main() {
 
 ---
 
-## 7. リンクと画像
+## リンクと画像
 
-### 7.1. リンク
+### リンク
 ```md
 [Google](https://www.google.com)
 ```
 [Google](https://www.google.com)
 
-### 7.2. 画像
+## リンクカード
+
+```md
+https://azuma-ya.life
+``` 
+
+https://azuma-ya.life
+
+
+### 画像
 ```md
 ![Azuma-ya](/asset/blog/markdown/image.webp)
 ```
@@ -179,7 +188,7 @@ int main() {
 
 ---
 
-## 8. タスクリスト（To-Do リスト）
+## タスクリスト（To-Do リスト）
 ```md
 - [x] タスク 1
 - [ ] タスク 2
@@ -196,7 +205,7 @@ int main() {
 
 ---
 
-## 9. Block Math
+## Block Math
 
 ```latex
 $$
@@ -226,7 +235,7 @@ $$
 
 ---
 
-## 10. Inline Math
+## Inline Math
 
 ```latex
 エントロピーのチェイン則とは、$X$ と $Y$ の曖昧さ$H(X, Y)$は、$X$ の知ることの曖昧さ$H(X)$に、$X$ を知ったうえで、$Y$ の知ることの曖昧さ $H(Y | X)$を足したものと言うことである。
@@ -235,7 +244,7 @@ $$
 
 ---
 
-## 11. Flex
+## Flex
 ```md
 :::flex
 ![Azuma-ya](/asset/blog/markdown/image.webp)

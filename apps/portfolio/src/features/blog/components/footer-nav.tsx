@@ -1,0 +1,32 @@
+import { Button } from "@repo/ui/components/input/button";
+import { MoveLeft, MoveRight } from "lucide-react";
+import Link from "next/link";
+import type { InternalBlog } from "../types/blog";
+
+interface Props {
+  prev?: InternalBlog;
+  next?: InternalBlog;
+}
+
+export const FooterNav = ({ prev, next }: Props) => {
+  return (
+    <nav className="flex md:flex-row flex-col w-full justify-between gap-4 items-center py-4">
+      {prev && (
+        <Button variant="ghost" className="whitespace-normal me-auto" asChild>
+          <Link href={`/blogs/${prev.slug}`}>
+            <MoveLeft className="mr-2" />
+            {prev.title}
+          </Link>
+        </Button>
+      )}
+      {next && (
+        <Button variant="ghost" className="whitespace-normal ms-auto" asChild>
+          <Link href={`/blogs/${next.slug}`}>
+            {next.title}
+            <MoveRight className="ml-2" />
+          </Link>
+        </Button>
+      )}
+    </nav>
+  );
+};
