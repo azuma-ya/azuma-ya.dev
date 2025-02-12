@@ -1,0 +1,15 @@
+name = "azumaya-blog-editor"
+compatibility_date = "2024-02-12"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[vars]
+NODE_VERSION = "20.0.0"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "azumaya-blog-editor-db"
+database_id = "54cd0766-b44e-4c5e-939b-e72eb3f9a3ec"
+migrations_dir = "drizzle"
+preview_database_id = "DB"
+

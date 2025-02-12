@@ -12,7 +12,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
   title: "Azuma-ya's Blog Editor",
   description:
     "Azuma-ya ブログの Web エディターです。github 連携で記事を書くことができます。",
