@@ -47,6 +47,7 @@
 @layer base {
   :root {
     --header-height: 4rem;
+    --footer-height: 8rem;
     --my-marker: "- ";
 
     --background: var(--color-neutral-50);

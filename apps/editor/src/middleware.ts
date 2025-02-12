@@ -1,6 +1,7 @@
 import authConfig from "auth.config";
 import NextAuth from "next-auth";
 import type { MiddlewareConfig, NextRequest } from "next/server";
+
 import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,

@@ -4,6 +4,8 @@ import { Noto_Sans_JP } from "next/font/google";
 import { cn } from "@repo/ui/lib/utils";
 
 import "./globals.css";
+import SheetProvider from "@/providers/sheet-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -43,7 +45,10 @@ const RootLayout = ({
         suppressHydrationWarning
         className={cn(notoSansJP.className, "antialiased")}
       >
-        <main>{children}</main>
+        <ThemeProvider>
+          <SheetProvider />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
