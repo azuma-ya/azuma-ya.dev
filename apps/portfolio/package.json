@@ -10,10 +10,7 @@
     "dev": "concurrently \"next dev --turbopack\" \"bunx contentlayer dev\"",
     "build": "next build",
     "start": "next start",
-    "check": "biome check --write *",
-    "pages:build": "bunx @cloudflare/next-on-pages",
-    "preview": "bun run pages:build && wrangler pages dev",
-    "deploy": "bun run pages:build && wrangler pages deploy"
+    "check": "biome check --write *"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
