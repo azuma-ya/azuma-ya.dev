@@ -34,8 +34,8 @@ export const getMetaData = async (url: string): Promise<Meta> => {
         metaData.image = meta.getAttribute("content") || "";
       }
     }
-  } catch (e) {
-    console.error(e);
+  } catch (_e) {
+    console.error("Failed to get metadata");
   }
   return metaData;
 };
