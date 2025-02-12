@@ -7,6 +7,8 @@ import {
 } from "@repo/ui/components/data-display/avatar";
 import { Button } from "@repo/ui/components/input/button";
 
+export const runtime = "edge";
+
 async function Page() {
   const session = await auth();
   return (

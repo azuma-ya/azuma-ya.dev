@@ -15,8 +15,7 @@
   "scripts": {
     "build": "turbo build",
     "portfolio:build": "turbo build --filter=portfolio",
-    "editor:build": "turbo build --filter=editor",
-    "pages:build": "turbo pages:build",
+    "editor:build": "turbo pages:build --filter=editor",
     "dev": "turbo dev",
     "check": "turbo check"
   },
