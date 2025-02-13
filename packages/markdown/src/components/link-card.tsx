@@ -32,7 +32,9 @@ export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
           <div className="text-gray-400 text-xs whitespace-pre-wrap">
             {target.description}
           </div>
-          <p className="text-gray-400 text-xs whitespace-pre-wrap">{href}</p>
+          {!target.image && (
+            <p className="text-gray-400 text-xs whitespace-pre-wrap">{href}</p>
+          )}
         </div>
       </a>
     );
