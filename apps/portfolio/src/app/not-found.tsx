@@ -5,9 +5,9 @@ export const generateMetadata = () => {
   const info = getInfo();
 
   return {
-    title: `Not Found | ${info.name}'s Portfolio`,
+    title: `Not Found | ${info.portfolio.title}`,
     openGraph: {
-      title: `Not Found | ${info.name}'s Portfolio`,
+      title: `Not Found | ${info.portfolio.title}`,
     },
   };
 };

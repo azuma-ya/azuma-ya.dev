@@ -21,7 +21,7 @@ export const ProfileSection = ({ data }: Props) => {
       </Avatar>
       <div className="">
         <p className="text-center font-bold text-xl">{data.name}</p>
-        <p className="text-center text-base">{data.description}</p>
+        <p className="text-center text-base">{data.role}</p>
       </div>
     </section>
   );

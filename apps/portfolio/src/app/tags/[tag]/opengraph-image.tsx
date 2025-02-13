@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 
 import { OgpImage } from "@/components/base/ogp-image";
+import { getInfo } from "@/features/profile/lib/get-info";
 import { getTags } from "@/features/tag/lib/get-tags";
 
 export const size = {
@@ -33,6 +34,8 @@ export const generateStaticParams = () => {
 export default async function Image({ params }: Props) {
   const { tag } = await params;
 
+  const info = getInfo();
+
   const logoData = await readFile(
     join(process.cwd(), "public/asset/ogp/template.png"),
   );
@@ -42,7 +45,7 @@ export default async function Image({ params }: Props) {
     <OgpImage
       src={logoSrc}
       size={size}
-      title={`${tag} | Azuma-ya's Portfolio`}
+      title={`${tag} | ${info.portfolio.title}`}
     />,
     {
       ...size,

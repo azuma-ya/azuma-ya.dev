@@ -18,10 +18,10 @@ export const generateMetadata = async ({ params }: Props) => {
   const info = getInfo();
 
   return {
-    title: `${tag} | ${info.name}'s Portfolio`,
+    title: `${tag} | ${info.portfolio.title}`,
     description: `${tag}でタグ付けられた記事一覧です。`,
     openGraph: {
-      title: `${tag} | ${info.name}'s Portfolio`,
+      title: `${tag} | ${info.portfolio.title}`,
       description: `${tag}でタグ付けられた記事一覧です。`,
     },
   };

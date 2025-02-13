@@ -1,8 +1,14 @@
 {
   "avatar": "/asset/profile/icon.webp",
   "name": "Azuma-ya",
-  "description": "A Software Engineer",
+  "role": "A Software Engineer",
+  "bio": "Hello, I am Azuma-ya.",
   "socials": {
     "github": "https://github.com/azuma-ya"
+  },
+  "portfolio": {
+    "title": "Azuma-ya's Portfolio",
+    "description": "My personal website",
+    "url": "https://azuma-ya.life"
   }
 }

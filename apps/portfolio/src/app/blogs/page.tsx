@@ -14,11 +14,11 @@ export const generateMetadata = () => {
   const info = getInfo();
 
   return {
-    title: `Blogs | ${info.name}'s Portfolio`,
-    description: `${info.name}のブログ一覧ページです。`,
+    title: `Blogs | ${info.portfolio.title}`,
+    description: `${info.portfolio.title}のブログ一覧ページです。`,
     openGraph: {
-      title: `Blogs | ${info.name}'s Portfolio`,
-      description: `${info.name}のブログ一覧ページです。`,
+      title: `Blogs | ${info.portfolio.title}`,
+      description: `${info.portfolio.title}のブログ一覧ページです。`,
     },
   };
 };

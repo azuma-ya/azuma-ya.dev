@@ -1,18 +1,20 @@
+import Link from "next/link";
+
+import { Badge } from "@repo/ui/components/data-display/badge";
+
 import { BaseLayout } from "@/components/layout/base-layout";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getTags } from "@/features/tag/lib/get-tags";
-import { Badge } from "@repo/ui/components/data-display/badge";
-import Link from "next/link";
 
 export const generateMetadata = () => {
   const info = getInfo();
 
   return {
-    title: `Tags | ${info.name}'s Portfolio`,
-    description: `${info.name}のタグ一覧ページです。`,
+    title: `Tags | ${info.portfolio.title}`,
+    description: `${info.portfolio.title}のタグ一覧ページです。`,
     openGraph: {
-      title: `Tags | ${info.name}'s Portfolio`,
-      description: `${info.name}のタグ一覧ページです。`,
+      title: `Tags | ${info.portfolio.title}`,
+      description: `${info.portfolio.title}のタグ一覧ページです。`,
     },
   };
 };

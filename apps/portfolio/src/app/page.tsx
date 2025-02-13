@@ -11,11 +11,11 @@ export const generateMetadata = () => {
   const info = getInfo();
 
   return {
-    title: `${info.name}'s Portfolio`,
-    description: `${info.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+    title: info.portfolio.title,
+    description: info.portfolio.description,
     openGraph: {
-      title: `${info.name}'s Portfolio`,
-      description: `${info.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+      title: info.portfolio.title,
+      description: info.portfolio.description,
     },
   };
 };

@@ -5,11 +5,11 @@ import { cn } from "@repo/ui/lib/utils";
 
 import { Footer } from "@/components/base/footer";
 import { Header } from "@/components/base/header";
+import { getInfo } from "@/features/profile/lib/get-info";
 import SheetProvider from "@/providers/sheet-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 import "./globals.css";
-import type { Metadata } from "next";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -17,21 +17,23 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
-  title: "Azuma-ya's Portfolio",
-  description:
-    "Software Engineer Azuma-ya のポートフォリオサイトです。経歴やスキル、作品一覧等を掲載しています。",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    type: "website",
-    title: "Azuma-ya's Portfolio",
-    description:
-      "Software Engineer Azuma-ya のポートフォリオサイトです。経歴やスキル、作品一覧等を掲載しています。",
-  },
+export const generateMetadata = () => {
+  const info = getInfo();
+
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+    title: info.portfolio.title,
+    description: info.portfolio.description,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      type: "website",
+      title: info.portfolio.title,
+      description: info.portfolio.description,
+    },
+  };
 };
 
 const RootLayout = ({

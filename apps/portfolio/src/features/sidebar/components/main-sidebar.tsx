@@ -13,9 +13,14 @@ import {
 } from "@repo/ui/components/feedback/sheet";
 
 import { Navigation } from "@/components/base/navigation";
+import type { Info } from "@/features/profile/types/info";
 import useMainSidebar from "../hooks/use-main-sidebar";
 
-export const MainSidebar = () => {
+interface MainSidebarProps {
+  data: Info;
+}
+
+export const MainSidebar = ({ data }: MainSidebarProps) => {
   const router = useRouter();
   const { isOpen, onClose } = useMainSidebar();
 
@@ -28,8 +33,8 @@ export const MainSidebar = () => {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="left" className="flex flex-col">
         <SheetHeader>
-          <SheetTitle className="text-start">Azuma-ya</SheetTitle>
-          <SheetDescription />
+          <SheetTitle className="text-start">{data.name}</SheetTitle>
+          <SheetDescription className="text-start">{data.bio}</SheetDescription>
         </SheetHeader>
         <div className="flex flex-col justify-center h-full gap-8">
           <Navigation orientation="vertical" onClick={onNavigate} />
@@ -39,7 +44,7 @@ export const MainSidebar = () => {
         <SheetFooter />
         <SheetFooter>
           <p className="text-muted-foreground text-center text-xs">
-            &copy; {new Date().getFullYear()} Azuma-ya
+            &copy; {new Date().getFullYear()} {data.name}
           </p>
         </SheetFooter>
       </SheetContent>
