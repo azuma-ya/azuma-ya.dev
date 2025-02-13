@@ -4,15 +4,15 @@ import {
   AvatarImage,
 } from "@repo/ui/components/data-display/avatar";
 
-import type { Profile } from "../types/profile";
+import type { Info } from "../types/info";
 
 interface Props {
-  data: Profile;
+  data: Info;
 }
 
 export const ProfileSection = ({ data }: Props) => {
   return (
-    <section className="flex items-center gap-4 justify-center mt-24">
+    <section className="flex items-center gap-4 justify-center">
       <Avatar className="size-18">
         <AvatarImage src={data.avatar} />
         <AvatarFallback className="font-bold text-xl">

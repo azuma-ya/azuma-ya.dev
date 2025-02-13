@@ -3,33 +3,34 @@ import { Separator } from "@repo/ui/components/data-display/separator";
 import { Container } from "@repo/ui/components/layout/container";
 
 import { ProfileSection } from "@/features/profile/components/profile-section";
+import { getInfo } from "@/features/profile/lib/get-info";
 import { getProfile } from "@/features/profile/lib/get-profile";
 import { getMetas } from "@/lib/meta";
-import {} from "@repo/markdown/utils/meta";
 
 export const generateMetadata = () => {
-  const profile = getProfile();
+  const info = getInfo();
 
   return {
-    title: `${profile.name}'s Portfolio`,
-    description: `${profile.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+    title: `${info.name}'s Portfolio`,
+    description: `${info.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
     openGraph: {
-      title: `${profile.name}'s Portfolio`,
-      description: `${profile.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
+      title: `${info.name}'s Portfolio`,
+      description: `${info.name}のポートフォリオサイトです。スキルやブログを掲載しています。`,
     },
   };
 };
 
 const Page = async () => {
-  const profile = getProfile();
+  const info = getInfo();
+  const content = getProfile();
 
-  const metas = await getMetas(profile.content);
+  const metas = await getMetas(content);
 
   return (
-    <Container maxWidth="md" className="space-y-8">
-      <ProfileSection data={profile} />
+    <Container maxWidth="md" className="space-y-8 my-24">
+      <ProfileSection data={info} />
       <Separator />
-      <Markdown metas={metas}>{profile.content}</Markdown>
+      <Markdown metas={metas}>{content}</Markdown>
     </Container>
   );
 };

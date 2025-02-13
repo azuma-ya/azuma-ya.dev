@@ -11,10 +11,10 @@ import { FooterNav } from "@/features/blog/components/footer-nav";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
-import { getProfile } from "@/features/profile/lib/get-profile";
+import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
-import {} from "@repo/markdown/utils/meta";
 import { Separator } from "@repo/ui/components/data-display/separator";
+import Link from "next/link";
 
 interface Props {
   params: Promise<{
@@ -30,10 +30,10 @@ export const generateMetadata = async ({ params }: Props) => {
     return notFound();
   }
 
-  const profile = getProfile();
+  const info = getInfo();
 
   return {
-    title: `${blog.title} | ${profile.name}'s Portfolio`,
+    title: `${blog.title} | ${info.name}'s Portfolio`,
     description: blog.description,
     openGraph: {
       title: blog.title,
@@ -99,7 +99,9 @@ const BlogDetailPage = async ({ params }: Props) => {
           <ul className="flex gap-2">
             {blog.tags.map((tag) => (
               <li key={tag}>
-                <Badge size="sm">{tag}</Badge>
+                <Link href={`/tags/${tag}`}>
+                  <Badge size="sm">{tag}</Badge>
+                </Link>
               </li>
             ))}
           </ul>

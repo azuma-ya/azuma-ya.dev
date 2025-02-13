@@ -48,7 +48,7 @@
   :root {
     --header-height: 4rem;
     --footer-height: 8rem;
-    --my-marker: "- ";
+    --my-marker: "-　";
 
     --background: var(--color-neutral-50);
     --foreground: var(--color-neutral-900);

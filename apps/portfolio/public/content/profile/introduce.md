@@ -1,11 +1,3 @@
----
-avatar: /asset/profile/icon.webp
-name: "Azuma-ya"
-description: "A Software Engineer"
-socials:
-  github: https://github.com/azuma-ya
----
-
 :::section
 
 [群馬大学](http://www.gunma-u.ac.jp/)・情報学部・情報学科の 3 年生です。

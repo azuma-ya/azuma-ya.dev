@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const profileSchema = z.object({
+export const infoSchema = z.object({
   avatar: z.string(),
   name: z.string(),
   description: z.string(),
@@ -9,7 +9,6 @@ export const profileSchema = z.object({
     x: z.string().optional(),
     linkedin: z.string().optional(),
   }),
-  content: z.string(),
 });
 
-export type Profile = z.infer<typeof profileSchema>;
+export type Info = z.infer<typeof infoSchema>;

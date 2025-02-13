@@ -18,7 +18,7 @@
   h4,
   h5,
   h6 {
-    @apply mt-8 font-semibold relative;
+    @apply mt-8 my-2 font-semibold relative;
 
     &:hover > a {
       @apply opacity-100;
