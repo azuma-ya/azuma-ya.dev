@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { users } from "@/db/schema";
+import { userInfos } from "@/db/schema";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { handle } from "hono/vercel";
@@ -18,7 +18,7 @@ app.onError((err, c) => {
 });
 
 const routes = app.get("/users", async (c) => {
-  const data = await db.select().from(users);
+  const data = await db.select().from(userInfos);
   return c.json({ data });
 });
 

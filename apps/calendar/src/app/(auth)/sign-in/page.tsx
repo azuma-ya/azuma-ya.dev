@@ -1,4 +1,3 @@
-import { signIn } from "@/lib/auth";
 import { Button } from "@repo/ui/components/input/button";
 
 export const runtime = "edge";
@@ -8,7 +7,6 @@ async function Page() {
     <form
       action={async () => {
         "use server";
-        await signIn("github");
       }}
       className="flex flex-col h-screen justify-center items-center"
     >
