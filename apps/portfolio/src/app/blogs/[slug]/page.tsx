@@ -1,10 +1,22 @@
+import { Fragment } from "react";
+
 import { format } from "date-fns";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Markdown } from "@repo/markdown/components/markdown";
 import { Badge } from "@repo/ui/components/data-display/badge";
+import { Separator } from "@repo/ui/components/data-display/separator";
 import { BackButton } from "@repo/ui/components/input/back-button";
 import { Container } from "@repo/ui/components/layout/container";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@repo/ui/components/navigation/breadcrumb";
 
 import { Toc } from "@/components/data-display/toc";
 import { FooterNav } from "@/features/blog/components/footer-nav";
@@ -13,8 +25,6 @@ import { getBlog } from "@/features/blog/lib/get-blog";
 import type { InternalBlog } from "@/features/blog/types/blog";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
-import { Separator } from "@repo/ui/components/data-display/separator";
-import Link from "next/link";
 
 interface Props {
   params: Promise<{
@@ -85,17 +95,42 @@ const BlogDetailPage = async ({ params }: Props) => {
   return (
     <Container maxWidth="xl" className="space-y-2 md:my-16 my-4">
       <div className="flex items-start gap-5">
-        <div className="basis-1/5 shrink-0 sticky top-(--header-height) hidden md:block space-y-4">
+        <aside className="basis-1/5 shrink-0 sticky top-(--header-height) hidden md:block space-y-4">
           <BackButton variant="ghost" />
           <Toc className="overflow-y-auto max-h-[calc(100vh-16rem)] hidden-scrollbar" />
-        </div>
+        </aside>
         <article className="space-y-4 min-w-0 w-full">
-          <div className="flex flex-col">
-            <h1 className="text-2xl font-bold">{blog.title}</h1>
+          <header>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/blogs">Blogs</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                {blog.categories.map((category, index, categories) => (
+                  <Fragment key={category}>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink
+                        href={`/categories?open=${categories
+                          .slice(0, index + 1)
+                          .join("/")}`}
+                      >
+                        {category}
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                  </Fragment>
+                ))}
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{blog.slug}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            <h1 className="text-2xl font-bold mt-1">{blog.title}</h1>
             <time className="text-foreground/50">
               {format(blog.createdAt, "yyyy/MM/dd")}
             </time>
-          </div>
+          </header>
           <ul className="flex gap-2">
             {blog.tags.map((tag) => (
               <li key={tag}>

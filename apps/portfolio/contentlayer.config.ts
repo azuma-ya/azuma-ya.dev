@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const InternalBlog = defineDocumentType(() => ({
   name: "InternalBlog",
-  filePathPattern: "blog/*.md",
+  filePathPattern: "blog/**/*.md",
   fields: {
     title: { type: "string", required: true },
     createdAt: { type: "string", required: true },
@@ -15,12 +15,20 @@ export const InternalBlog = defineDocumentType(() => ({
       type: "string",
       resolve: (blog) => blog._raw.sourceFileName.replace(/\.md$/, ""),
     },
+    categories: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+      resolve: (blog) =>
+        blog._raw.sourceFileDir.replace(/\.md$/, "").split("/").slice(1),
+    },
   },
 }));
 
 export const ExternalBlog = defineDocumentType(() => ({
   name: "ExternalBlog",
-  filePathPattern: "blog/*.md",
+  filePathPattern: "blog/**/*.md",
   fields: {
     title: { type: "string", required: true },
     createdAt: { type: "string", required: true },
@@ -28,9 +36,20 @@ export const ExternalBlog = defineDocumentType(() => ({
     tags: { type: "list", of: { type: "string" }, required: true },
     url: { type: "string", required: true },
   },
+  computedFields: {
+    categories: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+      resolve: (blog) =>
+        blog._raw.sourceFileDir.replace(/\.md$/, "").split("/").slice(1),
+    },
+  },
 }));
 
 export default makeSource({
   contentDirPath: "public/content",
+  contentDirInclude: ["blog"],
   documentTypes: [InternalBlog, ExternalBlog],
 });

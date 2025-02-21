@@ -7,6 +7,7 @@ const baseBlogSchema = z.object({
   createdAt: dateSchema,
   updatedAt: dateSchema.optional(),
   tags: z.array(z.string()),
+  categories: z.array(z.string()),
 });
 
 export const externalBlogSchema = baseBlogSchema.and(

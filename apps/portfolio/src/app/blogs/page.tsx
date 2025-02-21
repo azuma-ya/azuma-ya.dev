@@ -1,4 +1,4 @@
-import { MoveUpRight } from "lucide-react";
+import { MoreVertical, MoveUpRight } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@repo/ui/components/input/button";
@@ -9,6 +9,12 @@ import { YearSection } from "@/features/blog/components/year-section";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { toGroupSortByYear } from "@/features/blog/lib/utils";
 import { getInfo } from "@/features/profile/lib/get-info";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@repo/ui/components/navigation/dropdown-menu";
 
 export const generateMetadata = () => {
   const info = getInfo();
@@ -28,8 +34,17 @@ const BlogListPage = () => {
 
   const sortedGroupedBlogs = toGroupSortByYear(blogs);
 
+  const NavigateToCategory = () => (
+    <Button variant="ghost" size="sm" asChild className="justify-start">
+      <Link href="/categories">
+        Categories
+        <MoveUpRight />
+      </Link>
+    </Button>
+  );
+
   const NavigateToTag = () => (
-    <Button variant="ghost" size="sm" asChild>
+    <Button variant="ghost" size="sm" asChild className="justify-start">
       <Link href="/tags">
         Tags
         <MoveUpRight />
@@ -37,8 +52,33 @@ const BlogListPage = () => {
     </Button>
   );
 
+  const Nav = () => (
+    <>
+      <nav className="gap-2 hidden md:flex">
+        <NavigateToCategory />
+        <NavigateToTag />
+      </nav>
+      <DropdownMenu modal={false}>
+        <DropdownMenuTrigger asChild className="md:hidden">
+          <Button variant="ghost" size="icon">
+            <MoreVertical />
+            <span className="sr-only">More</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem asChild>
+            <NavigateToCategory />
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <NavigateToTag />
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
+  );
+
   return (
-    <BaseLayout title="Blogs" action={<NavigateToTag />}>
+    <BaseLayout title="Blogs" action={<Nav />}>
       <div className="hidden last:flex items-center justify-center h-[calc(100vh-16rem)]">
         No blogs yet..
       </div>

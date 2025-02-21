@@ -16,7 +16,7 @@ export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center justify-start bg-background border rounded-md w-full mt-4 mb-2 no-underline! overflow-hidden"
+        className="inline-flex items-center justify-start bg-background border rounded-md w-full mt-4 mb-2 no-underline! overflow-hidden text-primary!"
       >
         {target.image && (
           <div className="relative md:aspect-video aspect-square h-36">

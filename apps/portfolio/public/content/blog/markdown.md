@@ -1,11 +1,10 @@
 ---
-title: 'Markdownのすすめ'
-createdAt: '2024-02-06'
+title: Markdownのすすめ
+createdAt: 2024-02-06
 tags: 
-    - 'Blog'
-    - 'Markdown'
-description: 'Azuma-ya.lifeが使用できるMarkdownの記法と使い方をまとめてみました。'
-type: 'InternalBlog'
+    - Markdown
+description: Azuma-ya.lifeが使用できるMarkdownの記法と使い方をまとめてみました。
+type: InternalBlog
 ---
 
 ## 見出し
@@ -212,10 +211,7 @@ $$
 \begin{align*}
     H(X) &= - \sum_{x \in \mathcal{X}} p(x) \log p(x)\\
     H(X, Y) &= - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(x, y)\\
-    H(Y | X) & = \sum_{x \in \mathcal{X}} p(x) H(Y | X = x)                                      \\
-		         & = - \sum_{x \in \mathcal{X}} p(x) \sum_{y \in \mathcal{Y}} p(y | x) \log p(y | x) \\
-		         & = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(y | x)       \\
-		         & = -E \log p(Y|X)\\
+    H(Y | X) & = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(y | x)       \\
     H(X, Y) &= H(X) + H(Y | X)
 \end{align*}
 $$
@@ -225,10 +221,7 @@ $$
 \begin{align*}
     H(X) &= - \sum_{x \in \mathcal{X}} p(x) \log p(x)\\
     H(X, Y) &= - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(x, y)\\
-    H(Y | X) & = \sum_{x \in \mathcal{X}} p(x) H(Y | X = x)                                      \\
-		         & = - \sum_{x \in \mathcal{X}} p(x) \sum_{y \in \mathcal{Y}} p(y | x) \log p(y | x) \\
-		         & = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(y | x)       \\
-		         & = -E \log p(Y|X)\\
+    H(Y | X) & = - \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(y | x)       \\
     H(X, Y) &= H(X) + H(Y | X)
 \end{align*}
 $$

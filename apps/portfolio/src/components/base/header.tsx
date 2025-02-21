@@ -1,7 +1,9 @@
-import { ThemeButton } from "@repo/ui/components/input/theme-button";
+import { ThemeToggleButton } from "@repo/ui/components/input/theme-toggle-button";
 import { Container } from "@repo/ui/components/layout/container";
 
 import { MainSidebarButton } from "@/features/sidebar/components/main-sidebar-button";
+import { Button } from "@repo/ui/components/input/button";
+import { Github } from "lucide-react";
 import { Navigation } from "./navigation";
 
 export const Header = () => {
@@ -13,8 +15,18 @@ export const Header = () => {
       >
         <MainSidebarButton />
         <Navigation className="hidden md:flex" />
-        <div className="flex items-center gap2">
-          <ThemeButton variant="ghost" />
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+            asChild
+          >
+            <a href="https://github.com/azuma-ya/azuma-ya.life">
+              <Github />
+            </a>
+          </Button>
+          <ThemeToggleButton variant="ghost" />
         </div>
       </Container>
     </header>
