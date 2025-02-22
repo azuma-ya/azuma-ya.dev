@@ -1,4 +1,4 @@
-import type { Blog } from "../types/blog";
+import type { Blog, InternalBlog } from "../types/blog";
 
 export const toGroupSortByYear = (blogs: Blog[]): [string, Blog[]][] => {
   const groupedBlogs = blogs.reduce(
@@ -23,3 +23,6 @@ export const toGroupSortByYear = (blogs: Blog[]): [string, Blog[]][] => {
         ] as const,
     );
 };
+
+export const filterInternalBlogs = (blogs: Blog[]): InternalBlog[] =>
+  blogs.filter((blog): blog is InternalBlog => blog.type === "InternalBlog");

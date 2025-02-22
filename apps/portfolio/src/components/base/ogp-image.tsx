@@ -1,5 +1,5 @@
 interface Props {
-  src: string | ArrayBuffer;
+  src: string | ArrayBufferLike;
   size: {
     width: number;
     height: number;

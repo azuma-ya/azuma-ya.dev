@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+
 import type { CategoryTree } from "../types/tree";
 import { Tree } from "./tree";
 

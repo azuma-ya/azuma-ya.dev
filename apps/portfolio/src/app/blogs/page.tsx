@@ -35,7 +35,7 @@ const BlogListPage = () => {
   const sortedGroupedBlogs = toGroupSortByYear(blogs);
 
   const NavigateToCategory = () => (
-    <Button variant="ghost" size="sm" asChild className="justify-start">
+    <Button variant="ghost" size="sm" asChild className="justify-start md:h-6">
       <Link href="/categories">
         Categories
         <MoveUpRight />
@@ -44,7 +44,7 @@ const BlogListPage = () => {
   );
 
   const NavigateToTag = () => (
-    <Button variant="ghost" size="sm" asChild className="justify-start">
+    <Button variant="ghost" size="sm" asChild className="justify-start md:h-6">
       <Link href="/tags">
         Tags
         <MoveUpRight />

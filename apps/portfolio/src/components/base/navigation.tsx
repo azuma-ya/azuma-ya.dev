@@ -28,6 +28,10 @@ const routes = [
     name: "Timeline",
     href: "/timeline",
   },
+  {
+    name: "Library",
+    href: "/library",
+  },
 ];
 
 export const Navigation = ({
