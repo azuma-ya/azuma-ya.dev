@@ -48,7 +48,7 @@ const RootLayout = ({
       className="scroll-pt-(--header-height) scroll-smooth"
     >
       <head>
-        <GoogleAnalytics gaId={process.env.GA_ID || ""} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
       </head>
       <body
         suppressHydrationWarning
