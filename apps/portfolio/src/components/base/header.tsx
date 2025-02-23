@@ -23,7 +23,7 @@ export const Header = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <Github />
+              <Github className="size-5!" />
             </a>
           </Button>
           <ThemeToggleButton variant="ghost" />

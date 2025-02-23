@@ -7,12 +7,10 @@ import { Container } from "@repo/ui/components/layout/container";
 
 import { BadgeList } from "@/components/data-display/badge-list";
 import { Toc } from "@/components/data-display/toc";
-import { BlogHeader } from "@/features/blog/components/blog-header";
-import { FooterNav } from "@/features/blog/components/footer-nav";
-import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
-import { getBlog } from "@/features/blog/lib/get-blog";
-import { filterInternalBlogs } from "@/features/blog/lib/utils";
-import type { InternalBlog } from "@/features/blog/types/blog";
+import { BookHeader } from "@/features/book/components/book-header";
+import { FooterNav } from "@/features/book/components/footer-nav";
+import { getAllBooks } from "@/features/book/lib/get-all-books";
+import { getBook } from "@/features/book/lib/get-book";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
 
@@ -24,56 +22,54 @@ interface Props {
 
 export const generateMetadata = async ({ params }: Props) => {
   const { slug } = await params;
-  const blog = getBlog<InternalBlog>(slug);
+  const book = await getBook(slug);
 
-  if (!blog) {
+  if (!book) {
     return notFound();
   }
 
   const info = getInfo();
 
   return {
-    title: `${blog.title} | ${info.portfolio.title}`,
-    description: blog.description,
+    title: `${book.title} | ${info.portfolio.title}`,
+    description: book.description,
     openGraph: {
-      title: `${blog.title} | ${info.portfolio.title}`,
-      description: blog.description,
+      title: `${book.title} | ${info.portfolio.title}`,
+      description: book.description,
     },
   };
 };
 
 export const generateStaticParams = async () => {
-  const blogs = getAllBlogs();
-  const internalBlogs = filterInternalBlogs(blogs);
+  const books = await getAllBooks();
 
-  if (internalBlogs.length === 0) {
+  if (books.length === 0) {
     return notFound();
   }
 
-  return internalBlogs.map((blog) => ({
-    slug: blog.slug,
+  return books.map((book) => ({
+    slug: book.slug,
   }));
 };
 
-const BlogDetailPage = async ({ params }: Props) => {
+const BookDetailPage = async ({ params }: Props) => {
   const { slug } = await params;
-  const blog = getBlog<InternalBlog>(slug);
+  const book = await getBook(slug);
 
-  if (!blog) {
+  if (!book) {
     return notFound();
   }
 
-  const metas = await getMetas(blog.content);
-  const blogs = getAllBlogs();
-  const internalBlogs = filterInternalBlogs(blogs);
+  const metas = await getMetas(book.content);
+  const books = await getAllBooks();
 
-  const sortedBlogs = internalBlogs.sort(
+  const sortedBooks = books.sort(
     (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
   );
 
-  const index = sortedBlogs.findIndex((blog) => blog.slug === slug);
-  const prev = sortedBlogs[index + 1];
-  const next = sortedBlogs[index - 1];
+  const index = sortedBooks.findIndex((book) => book.slug === slug);
+  const prev = sortedBooks[index + 1];
+  const next = sortedBooks[index - 1];
 
   return (
     <Container maxWidth="xl" className="space-y-2 md:my-16 my-4">
@@ -83,9 +79,9 @@ const BlogDetailPage = async ({ params }: Props) => {
           <Toc className="overflow-y-auto max-h-[calc(100vh-16rem)] hidden-scrollbar" />
         </aside>
         <article className="space-y-4 min-w-0 w-full">
-          <BlogHeader blog={blog} />
-          <BadgeList tags={blog.tags} />
-          <Markdown metas={metas}>{blog.content}</Markdown>
+          <BookHeader data={book} />
+          <BadgeList tags={book.tags} />
+          <Markdown metas={metas}>{book.content}</Markdown>
           <Separator />
           <FooterNav prev={prev} next={next} />
         </article>
@@ -94,4 +90,4 @@ const BlogDetailPage = async ({ params }: Props) => {
   );
 };
 
-export default BlogDetailPage;
+export default BookDetailPage;

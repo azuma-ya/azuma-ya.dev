@@ -48,8 +48,29 @@ export const ExternalBlog = defineDocumentType(() => ({
   },
 }));
 
+export const Book = defineDocumentType(() => ({
+  name: "Book",
+  filePathPattern: "book/**/*.md",
+  fields: {
+    title: { type: "string", required: true },
+    subtitle: { type: "string", required: false },
+    description: { type: "string", required: false },
+    url: { type: "string", required: true },
+    author: { type: "string", required: true },
+    createdAt: { type: "string", required: true },
+    updatedAt: { type: "string", required: false },
+    tags: { type: "list", of: { type: "string" }, required: true },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (book) => book._raw.sourceFileName.replace(/\.md$/, ""),
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "public/content",
-  contentDirInclude: ["blog"],
-  documentTypes: [InternalBlog, ExternalBlog],
+  contentDirInclude: ["blog", "book"],
+  documentTypes: [InternalBlog, ExternalBlog, Book],
 });
