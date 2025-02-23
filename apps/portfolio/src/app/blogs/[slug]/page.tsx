@@ -84,7 +84,7 @@ const BlogDetailPage = async ({ params }: Props) => {
         </aside>
         <article className="space-y-4 min-w-0 w-full">
           <BlogHeader blog={blog} />
-          <BadgeList tags={blog.tags} />
+          <BadgeList tags={blog.tags} isLink />
           <Markdown metas={metas}>{blog.content}</Markdown>
           <Separator />
           <FooterNav prev={prev} next={next} />
