@@ -19,7 +19,7 @@ export const BookHeader = ({ data }: Props) => {
         <h2 className="text-lg">{data.subtitle}</h2>
         <p className="text-sm">{data.author}</p>
         <time className="text-foreground/50 block">
-          {format(data.createdAt, "yyyy/MM/dd")}
+          {format(data.publishedAt, "yyyy/MM/dd")}
         </time>
         <a
           href={data.url}

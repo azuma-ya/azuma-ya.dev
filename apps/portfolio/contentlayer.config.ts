@@ -57,6 +57,7 @@ export const Book = defineDocumentType(() => ({
     description: { type: "string", required: false },
     url: { type: "string", required: true },
     author: { type: "string", required: true },
+    publishedAt: { type: "string", required: true },
     createdAt: { type: "string", required: true },
     updatedAt: { type: "string", required: false },
     tags: { type: "list", of: { type: "string" }, required: true },

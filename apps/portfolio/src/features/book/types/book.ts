@@ -4,9 +4,10 @@ import { z } from "zod";
 export const bookSchema = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
-  description: z.string(),
+  description: z.string().optional(),
   url: z.string(),
   image: z.string().optional(),
+  publishedAt: dateSchema,
   createdAt: dateSchema,
   updatedAt: dateSchema.optional(),
   tags: z.array(z.string()),
