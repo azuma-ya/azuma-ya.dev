@@ -21,7 +21,7 @@ const TagListPage = () => {
 
   return (
     <BaseLayout title="Tags">
-      <BadgeList tags={tags} />
+      <BadgeList tags={tags} isLink />
     </BaseLayout>
   );
 };
