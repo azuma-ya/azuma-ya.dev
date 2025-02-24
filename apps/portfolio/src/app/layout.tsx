@@ -48,6 +48,11 @@ const RootLayout = ({
       className="scroll-pt-(--header-height) scroll-smooth"
     >
       <head>
+        <link
+          rel="alternate"
+          type="application/xml"
+          href={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/feed.xml`}
+        />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "undefined"} />
       </head>
       <body

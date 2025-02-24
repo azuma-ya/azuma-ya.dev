@@ -11,7 +11,7 @@ const LibraryLayout = ({ children }: Props) => {
     <div className="min-h-[calc(100vh-var(--header-height)-var(--footer-height))] flex flex-col">
       {children}
       <Container maxWidth="md" className="mt-auto">
-        <p className="text-muted-foreground text-center">
+        <p className="text-muted-foreground text-center text-xs">
           ※当サイトの本の表紙画像はOGP画像により提供されており、著作権法に違反していないと考えられますが、抗議を受けた場合には直ちに削除いたします。
           <a
             href="https://maeshibu.com/2019/03/28/inlinelink/"

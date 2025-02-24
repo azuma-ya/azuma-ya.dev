@@ -5,6 +5,7 @@ import {
 } from "@repo/ui/components/data-display/avatar";
 
 import type { Info } from "../types/info";
+import { Links } from "./links";
 
 interface Props {
   data: Info;
@@ -22,6 +23,9 @@ export const ProfileSection = ({ data }: Props) => {
       <div className="">
         <p className="text-center font-bold text-xl">{data.name}</p>
         <p className="text-center text-base">{data.role}</p>
+      </div>
+      <div className="hidden md:block">
+        <Links data={data} />
       </div>
     </section>
   );

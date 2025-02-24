@@ -13,6 +13,7 @@ import {
 } from "@repo/ui/components/feedback/sheet";
 
 import { Navigation } from "@/components/base/navigation";
+import { Links } from "@/features/profile/components/links";
 import type { Info } from "@/features/profile/types/info";
 import useMainSidebar from "../hooks/use-main-sidebar";
 
@@ -39,9 +40,8 @@ export const MainSidebar = ({ data }: MainSidebarProps) => {
         <div className="flex flex-col justify-center h-full gap-8">
           <Navigation orientation="vertical" onClick={onNavigate} />
           <Separator />
-          <div className="h-24" />
+          <Links data={data} />
         </div>
-        <SheetFooter />
         <SheetFooter>
           <p className="text-muted-foreground text-center text-xs">
             &copy; {new Date().getFullYear()} {data.name}
