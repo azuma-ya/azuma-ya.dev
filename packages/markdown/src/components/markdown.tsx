@@ -47,7 +47,6 @@ export const Markdown = ({ children, metas = [] }: MarkdownProps) => {
         rehypeKatex,
         rehypeSlug,
         rehypeHeadFormat,
-        // rehypeHeadingLevel,
         rehypeHeadLinker,
       ]}
       remarkRehypeOptions={{

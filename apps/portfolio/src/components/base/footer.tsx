@@ -4,9 +4,10 @@ export const Footer = () => {
   const info = getInfo();
 
   return (
-    <footer className="sticky top-full h-(--footer-height) flex items-center justify-center">
+    <footer className="sticky top-full h-(--footer-height) flex flex-col items-center justify-center">
       <p className="text-muted-foreground">
-        &copy; {new Date().getFullYear()} {info.name}
+        &copy; {new Date().getFullYear()} {info.name} | This site uses Google
+        Analytics.
       </p>
     </footer>
   );
