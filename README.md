@@ -1,8 +1,8 @@
-# Azuma-ya.life
+# Azuma-ya.dev
 
 このリポジトリでは自身のポートフォリオサイトや、いくつかの関連するアプリケーションの構築をしています。構築には[Turborepo](https://turborepo.org/)を使用しており、[Cloudflare](https://cloudflare.com/)でデプロイしています。
 
-Website URL: https://azuma-ya.life
+Website URL: https://azuma-ya.dev
 
 ## プロジェクト構成
 

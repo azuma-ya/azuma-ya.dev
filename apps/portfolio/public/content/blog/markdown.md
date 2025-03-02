@@ -1,9 +1,9 @@
 ---
 title: Markdownのすすめ
-createdAt: 2024-02-06
+createdAt: 2025-02-05
 tags: 
     - Markdown
-description: Azuma-ya.lifeが使用できるMarkdownの記法と使い方をまとめてみました。
+description: Azuma-ya.devが使用できるMarkdownの記法と使い方をまとめてみました。
 type: InternalBlog
 ---
 
@@ -173,10 +173,10 @@ int main() {
 ## リンクカード
 
 ```md
-https://azuma-ya.life
+https://azuma-ya.dev
 ``` 
 
-https://azuma-ya.life
+https://azuma-ya.dev
 
 
 ### 画像

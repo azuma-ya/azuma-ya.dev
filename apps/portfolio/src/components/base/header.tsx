@@ -19,7 +19,7 @@ export const Header = () => {
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" className="rounded-full" asChild>
             <a
-              href="https://github.com/azuma-ya/azuma-ya.life"
+              href="https://github.com/azuma-ya/azuma-ya.dev"
               target="_blank"
               rel="noreferrer"
             >

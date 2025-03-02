@@ -1,7 +1,7 @@
 ---
 title: 個人ブログを作ったので初記事を書く
-createdAt: 2024-02-06
-updatedAt: 2024-02-13
+createdAt: 2025-02-06
+updatedAt: 2025-02-13
 tags: 
     - Blog
     - Next.js
@@ -13,7 +13,7 @@ type: InternalBlog
 
 個人ブログを作ったといっても、以前からポートフォリオサイトやブログ自体はすでにありました。今回はそれらのリニューアルで、サイト自体も0から作ったし、ブログも0から書いていきたいと考えています。なのでまぁ、初記事といっても差し支えないでしょう。
 
-## Azuma-ya.life を支える技術
+## Azuma-ya.dev を支える技術
 
 - [TypeScript](https://www.typescriptlang.org/)
 必須です。もう型がなければ生きていけない体になってしまいました。
@@ -68,9 +68,9 @@ remark-rehypeのhandlersで、独自記法を直接htmlに直しても大丈夫�
 
 ### Markdownのレンダリング
 
-以下のページにAzuma-ya.lifeで利用できるMarkdownの記法についてまとめています。
+以下のページにAzuma-ya.devで利用できるMarkdownの記法についてまとめています。
 
-https://azuma-ya.life/blogs/markdown
+https://azuma-ya.dev/blogs/markdown
 
 ## 終わりに
 
