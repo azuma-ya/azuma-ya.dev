@@ -1,4 +1,4 @@
-import { Rss } from "lucide-react";
+import { AtSign, Rss } from "lucide-react";
 
 import { Github } from "@repo/ui/components/icon/github";
 import { X } from "@repo/ui/components/icon/x";
@@ -42,6 +42,18 @@ export const Links = ({ data }: Props) => {
             rel="noopener noreferrer"
           >
             <X className="size-6!" />
+          </a>
+        </Button>
+      )}
+      {data.socials.email && (
+        <Button variant="ghost" size="icon" className="rounded-full size-10">
+          <a
+            href={`mailto:${data.socials.email}`}
+            target="_blank"
+            tabIndex={-1}
+            rel="noopener noreferrer"
+          >
+            <AtSign className="size-6!" />
           </a>
         </Button>
       )}

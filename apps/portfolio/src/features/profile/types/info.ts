@@ -9,6 +9,7 @@ export const infoSchema = z.object({
     github: z.string(),
     x: z.string().optional(),
     linkedin: z.string().optional(),
+    email: z.string().optional(),
   }),
   portfolio: z.object({
     title: z.string(),

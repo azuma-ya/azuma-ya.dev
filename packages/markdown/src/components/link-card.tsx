@@ -7,8 +7,15 @@ export interface LinkCardProps {
   metas: Meta[];
 }
 
+const TEXT_TRUNCATE_LENGTH = 90;
+
 export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
   const target = metas.find((meta) => meta.url === href);
+
+  const description =
+    target?.description && target.description.length > TEXT_TRUNCATE_LENGTH
+      ? `${target.description.slice(0, TEXT_TRUNCATE_LENGTH)}...`
+      : target?.description || "";
 
   if (target) {
     return (
@@ -30,7 +37,7 @@ export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
         <div className="space-y-4 m-4 md:m-8">
           <h5 className="text-sm whitespace-pre-wrap mt-0!">{target.title}</h5>
           <div className="text-gray-400 text-xs whitespace-pre-wrap">
-            {target.description}
+            {description}
           </div>
           {!target.image && (
             <p className="text-gray-400 text-xs whitespace-pre-wrap">{href}</p>

@@ -9,10 +9,17 @@ export const rehypeHeadFormat: Plugin<[], Root> = () => (tree) => {
       const level = Number.parseInt(node.tagName[1] || "6") - 1 || 1;
       const prefix = "#".repeat(level);
 
-      // 先頭に#を追加
+      // 先頭にspanタグで囲った#を追加
       node.children.unshift({
-        type: "text",
-        value: `${prefix} `,
+        type: "element",
+        tagName: "span",
+        properties: { class: "header-prefix" },
+        children: [
+          {
+            type: "text",
+            value: `${prefix} `,
+          },
+        ],
       });
     }
   });

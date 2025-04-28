@@ -121,6 +121,10 @@
   > .contains-task-list {
     @apply pl-0;
   }
+
+  .header-prefix {
+    @apply text-muted-foreground;
+  }
 }
 
 .defaultStyles {
