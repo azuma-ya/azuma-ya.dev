@@ -9,4 +9,5 @@ createdAt: 2023-06-01
 tags: 
     - JavaScript
     - Functional Programming
+isPinned: true
 ---

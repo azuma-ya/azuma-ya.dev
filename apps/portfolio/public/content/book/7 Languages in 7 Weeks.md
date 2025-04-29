@@ -7,6 +7,7 @@ publishedAt: 2011-7-23
 createdAt: 2024-02-01
 tags: 
     - Programming Language
+isPinned: true
 ---
 
 ## めちゃくちゃ面白い

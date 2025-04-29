@@ -9,6 +9,7 @@ export const InternalBlog = defineDocumentType(() => ({
     updatedAt: { type: "string", required: false },
     description: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: true },
+    isPinned: { type: "boolean", required: false },
   },
   computedFields: {
     slug: {
@@ -35,6 +36,7 @@ export const ExternalBlog = defineDocumentType(() => ({
     updatedAt: { type: "string", required: false },
     tags: { type: "list", of: { type: "string" }, required: true },
     url: { type: "string", required: true },
+    isPinned: { type: "boolean", required: false },
   },
   computedFields: {
     categories: {
@@ -61,6 +63,7 @@ export const Book = defineDocumentType(() => ({
     createdAt: { type: "string", required: true },
     updatedAt: { type: "string", required: false },
     tags: { type: "list", of: { type: "string" }, required: true },
+    isPinned: { type: "boolean", required: false },
   },
   computedFields: {
     slug: {

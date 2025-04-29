@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Pin } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@repo/ui/components/input/button";
@@ -17,7 +17,10 @@ export const BlogItem = ({ data }: Props) => {
       asChild
     >
       {data.type === "InternalBlog" ? (
-        <Link href={`/blogs/${data.slug}`}>{data.title}</Link>
+        <Link href={`/blogs/${data.slug}`}>
+          {data.title}
+          {data.isPinned && <Pin className="ml-auto" />}
+        </Link>
       ) : (
         <a
           href={data.url}

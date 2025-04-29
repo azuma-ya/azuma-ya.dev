@@ -7,15 +7,8 @@ export interface LinkCardProps {
   metas: Meta[];
 }
 
-const TEXT_TRUNCATE_LENGTH = 90;
-
 export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
   const target = metas.find((meta) => meta.url === href);
-
-  const description =
-    target?.description && target.description.length > TEXT_TRUNCATE_LENGTH
-      ? `${target.description.slice(0, TEXT_TRUNCATE_LENGTH)}...`
-      : target?.description || "";
 
   if (target) {
     return (
@@ -23,7 +16,7 @@ export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex items-center justify-start bg-background border rounded-md w-full mt-4 mb-2 no-underline! overflow-hidden text-primary!"
+        className="inline-flex items-center justify-start bg-background border rounded-md w-full mt-4 mb-2 no-underline! overflow-hidden text-primary! h-36"
       >
         {target.image && (
           <div className="relative md:aspect-video aspect-square h-36">
@@ -35,12 +28,16 @@ export const LinkCard = ({ href, children, metas }: LinkCardProps) => {
           </div>
         )}
         <div className="space-y-4 m-4 md:m-8">
-          <h5 className="text-sm whitespace-pre-wrap mt-0!">{target.title}</h5>
-          <div className="text-gray-400 text-xs whitespace-pre-wrap">
-            {description}
+          <h5 className="text-sm whitespace-pre-wrap mt-0! line-clamp-3">
+            {target.title}
+          </h5>
+          <div className="text-gray-400 text-xs whitespace-pre-wrap line-clamp-3">
+            {target.description}
           </div>
           {!target.image && (
-            <p className="text-gray-400 text-xs whitespace-pre-wrap">{href}</p>
+            <p className="text-gray-400 text-xs whitespace-pre-wrap line-clamp-1">
+              {href}
+            </p>
           )}
         </div>
       </a>

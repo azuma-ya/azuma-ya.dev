@@ -14,6 +14,7 @@ export const bookSchema = z.object({
   slug: z.string().transform((slug) => slug.replace(/\s+/g, "-")),
   content: z.string(),
   author: z.string(),
+  isPinned: z.boolean().default(false),
 });
 
 export type Book = z.infer<typeof bookSchema>;

@@ -8,6 +8,7 @@ const baseBlogSchema = z.object({
   updatedAt: dateSchema.optional(),
   tags: z.array(z.string()),
   categories: z.array(z.string()),
+  isPinned: z.boolean().default(false),
 });
 
 export const externalBlogSchema = baseBlogSchema.and(

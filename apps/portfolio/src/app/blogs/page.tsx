@@ -32,7 +32,9 @@ export const generateMetadata = () => {
 const BlogListPage = () => {
   const blogs = getAllBlogs();
 
-  const sortedGroupedBlogs = toGroupSortByYear(blogs);
+  const pinnedBlogs = blogs.filter((blog) => blog.isPinned);
+  const unpinnedBlogs = blogs.filter((blog) => !blog.isPinned);
+  const sortedGroupedBlogs = toGroupSortByYear(unpinnedBlogs);
 
   const NavigateToCategory = () => (
     <Button variant="ghost" size="sm" asChild className="justify-start md:h-6">
@@ -79,9 +81,29 @@ const BlogListPage = () => {
 
   return (
     <BaseLayout title="Blogs" action={<Nav />}>
+      <p className="text-muted-foreground mb-8">
+        writes about technology and thoughts
+      </p>
       <div className="hidden last:flex items-center justify-center h-[calc(100vh-16rem)]">
         No blogs yet..
       </div>
+      {pinnedBlogs.length > 0 && (
+        <section className="space-y-2">
+          <h2 className="text-lg font-bold text-blue-500">Pinned</h2>
+          <ul className="space-y-1">
+            {pinnedBlogs.map((blog) => (
+              <li
+                key={
+                  (("slug" in blog && blog.slug) ||
+                    ("url" in blog && blog.url)) as string
+                }
+              >
+                <BlogItem data={blog} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       {sortedGroupedBlogs.map(([year, blogs], index) => (
         <YearSection key={year} index={index} year={year}>
           <ul className="space-y-1">
