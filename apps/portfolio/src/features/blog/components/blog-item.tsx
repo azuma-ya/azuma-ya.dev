@@ -3,10 +3,10 @@ import Link from "next/link";
 
 import { Button } from "@repo/ui/components/input/button";
 
-import type { Blog } from "../types/blog";
+import type { ExternalBlog, InternalBlog } from "../types/blog";
 
 interface Props {
-  data: Blog;
+  data: InternalBlog | ExternalBlog;
 }
 
 export const BlogItem = ({ data }: Props) => {
@@ -19,6 +19,7 @@ export const BlogItem = ({ data }: Props) => {
       {data.type === "InternalBlog" ? (
         <Link href={`/blogs/${data.slug}`}>
           {data.title}
+          {data.slug}
           {data.isPinned && <Pin className="ml-auto" />}
         </Link>
       ) : (

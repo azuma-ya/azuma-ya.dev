@@ -21,6 +21,9 @@ const TagListPage = () => {
 
   return (
     <BaseLayout title="Tags">
+      <p className="text-muted-foreground mb-8">
+        these tags are used in my blogs
+      </p>
       <BadgeList tags={tags} isLink />
     </BaseLayout>
   );

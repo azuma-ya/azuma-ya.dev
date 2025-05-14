@@ -7,7 +7,7 @@ import { BaseLayout } from "@/components/layout/base-layout";
 import { BlogItem } from "@/features/blog/components/blog-item";
 import { YearSection } from "@/features/blog/components/year-section";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
-import { toGroupSortByYear } from "@/features/blog/lib/utils";
+import { getKey, toGroupSortByYear } from "@/features/blog/lib/utils";
 import { getInfo } from "@/features/profile/lib/get-info";
 import {
   DropdownMenu,
@@ -92,12 +92,7 @@ const BlogListPage = () => {
           <h2 className="text-lg font-bold text-blue-500">Pinned</h2>
           <ul className="space-y-1">
             {pinnedBlogs.map((blog) => (
-              <li
-                key={
-                  (("slug" in blog && blog.slug) ||
-                    ("url" in blog && blog.url)) as string
-                }
-              >
+              <li key={getKey(blog)}>
                 <BlogItem data={blog} />
               </li>
             ))}
@@ -108,12 +103,7 @@ const BlogListPage = () => {
         <YearSection key={year} index={index} year={year}>
           <ul className="space-y-1">
             {blogs.map((blog) => (
-              <li
-                key={
-                  (("slug" in blog && blog.slug) ||
-                    ("url" in blog && blog.url)) as string
-                }
-              >
+              <li key={getKey(blog)}>
                 <BlogItem data={blog} />
               </li>
             ))}

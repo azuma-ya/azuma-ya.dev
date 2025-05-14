@@ -1,0 +1,5 @@
+---
+type: BlogSubPage
+---
+
+## test subpage

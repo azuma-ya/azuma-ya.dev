@@ -45,7 +45,7 @@ export const BlogHeader = ({ blog }: Props) => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="text-2xl font-bold mt-1">{blog.title}</h1>
+      <h1 className="text-3xl font-bold my-2">{blog.title}</h1>
       <time className="text-foreground/50">
         {format(blog.createdAt, "yyyy/MM/dd")}
       </time>

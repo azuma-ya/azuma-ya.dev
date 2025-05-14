@@ -1,3 +1,4 @@
+import path from "node:path";
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const InternalBlog = defineDocumentType(() => ({
@@ -10,11 +11,15 @@ export const InternalBlog = defineDocumentType(() => ({
     description: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: true },
     isPinned: { type: "boolean", required: false },
+    type: { type: "string", required: true },
   },
   computedFields: {
     slug: {
       type: "string",
-      resolve: (blog) => blog._raw.sourceFileName.replace(/\.md$/, ""),
+      resolve: (doc) => {
+        const name = path.basename(doc._raw.sourceFileName, ".md");
+        return name;
+      },
     },
     categories: {
       type: "list",
@@ -37,6 +42,7 @@ export const ExternalBlog = defineDocumentType(() => ({
     tags: { type: "list", of: { type: "string" }, required: true },
     url: { type: "string", required: true },
     isPinned: { type: "boolean", required: false },
+    type: { type: "string", required: true },
   },
   computedFields: {
     categories: {
@@ -73,8 +79,26 @@ export const Book = defineDocumentType(() => ({
   },
 }));
 
+export const BlogSubPage = defineDocumentType(() => ({
+  name: "BlogSubPage",
+  filePathPattern: "blog/**/*.md",
+  fields: {
+    type: { type: "string", required: true },
+  },
+  computedFields: {
+    slugParts: {
+      type: "list",
+      of: { type: "string" },
+      resolve: (doc) => {
+        const name = path.basename(doc._raw.sourceFileName, ".md");
+        return name.split(".");
+      },
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "public/content",
   contentDirInclude: ["blog", "book"],
-  documentTypes: [InternalBlog, ExternalBlog, Book],
+  documentTypes: [InternalBlog, ExternalBlog, Book, BlogSubPage],
 });

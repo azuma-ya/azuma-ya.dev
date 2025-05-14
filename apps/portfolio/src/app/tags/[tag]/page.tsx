@@ -43,7 +43,10 @@ const TagDetailPage = async ({ params }: Props) => {
   const sortedGroupedBlogs = toGroupSortByYear(filteredBlogs);
 
   return (
-    <BaseLayout title={`Tagged with ${tag}`}>
+    <BaseLayout title={`Tagged with "${tag}"`}>
+      <p className="text-muted-foreground mb-8">
+        {tag} was linked in these blogs
+      </p>
       <div className="hidden last:flex items-center justify-center h-[calc(100vh-16rem)]">
         No blogs yet..
       </div>

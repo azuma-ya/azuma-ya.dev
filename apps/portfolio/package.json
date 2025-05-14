@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "concurrently \"next dev --turbopack\" \"bunx contentlayer dev\"",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve@latest out",
     "check": "biome check --write *"
   },
   "dependencies": {

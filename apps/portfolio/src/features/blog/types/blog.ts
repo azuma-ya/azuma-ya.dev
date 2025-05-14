@@ -27,8 +27,19 @@ export const internalBlogSchema = baseBlogSchema.and(
   }),
 );
 
-export const blogSchema = z.union([externalBlogSchema, internalBlogSchema]);
+export const blogSubPageSchema = z.object({
+  slugParts: z.array(z.string()),
+  content: z.string(),
+  type: z.literal("BlogSubPage"),
+});
+
+export const blogSchema = z.union([
+  externalBlogSchema,
+  internalBlogSchema,
+  blogSubPageSchema,
+]);
 
 export type ExternalBlog = z.infer<typeof externalBlogSchema>;
 export type InternalBlog = z.infer<typeof internalBlogSchema>;
+export type BlogSubPage = z.infer<typeof blogSubPageSchema>;
 export type Blog = z.infer<typeof blogSchema>;

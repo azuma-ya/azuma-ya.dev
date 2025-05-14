@@ -7,7 +7,14 @@ interface Props {
 }
 
 const CategoriesLayout = ({ children }: Props) => {
-  return <BaseLayout title="Categories">{children}</BaseLayout>;
+  return (
+    <BaseLayout title="Categories">
+      <p className="text-muted-foreground mb-8">
+        these categories are hierarchy structure
+      </p>
+      {children}
+    </BaseLayout>
+  );
 };
 
 export default CategoriesLayout;
