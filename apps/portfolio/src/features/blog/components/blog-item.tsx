@@ -19,7 +19,6 @@ export const BlogItem = ({ data }: Props) => {
       {data.type === "InternalBlog" ? (
         <Link href={`/blogs/${data.slug}`}>
           {data.title}
-          {data.slug}
           {data.isPinned && <Pin className="ml-auto" />}
         </Link>
       ) : (

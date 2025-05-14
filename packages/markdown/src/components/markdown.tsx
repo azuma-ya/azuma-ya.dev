@@ -1,4 +1,4 @@
-import ReactMarkdown, { type Components } from "react-markdown";
+import ReactMarkdown, { type Options, type Components } from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
@@ -6,6 +6,8 @@ import remarkDirective from "remark-directive";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+
+import { cn } from "@repo/ui/lib/utils";
 
 import type { Meta } from "../utils/meta";
 
@@ -25,14 +27,19 @@ import { Section } from "./section";
 import "@repo/markdown/globals.css";
 import "katex/dist/katex.min.css";
 
-interface MarkdownProps {
+interface MarkdownProps extends Options {
   children: string;
   metas?: Meta[];
 }
 
-export const Markdown = ({ children, metas = [] }: MarkdownProps) => {
+export const Markdown = ({
+  children,
+  metas = [],
+  ...options
+}: MarkdownProps) => {
   return (
     <ReactMarkdown
+      {...options}
       remarkPlugins={[
         remarkGfm,
         remarkMath,
@@ -42,21 +49,24 @@ export const Markdown = ({ children, metas = [] }: MarkdownProps) => {
         remarkCallout,
         remarkLinkCard,
         remarkDirectiveRehype,
+        ...(options.remarkPlugins ?? []),
       ]}
       rehypePlugins={[
         rehypeKatex,
         rehypeSlug,
         rehypeHeadFormat,
         rehypeHeadLinker,
+        ...(options.rehypePlugins ?? []),
       ]}
       remarkRehypeOptions={{
         handlers: {
           ...remarkSection.handlers,
           ...remarkCallout.handlers,
           ...remarkLinkCard.handlers,
+          ...(options.remarkRehypeOptions?.handlers ?? {}),
         },
       }}
-      className="markdown min-w-0"
+      className={cn("markdown min-w-0", options.className)}
       components={
         {
           code: CodeHighlight,
@@ -68,6 +78,7 @@ export const Markdown = ({ children, metas = [] }: MarkdownProps) => {
           "link-card": (props: LinkCardProps) => (
             <LinkCard {...props} metas={metas} />
           ),
+          ...(options.components ?? {}),
         } as Components
       }
     >

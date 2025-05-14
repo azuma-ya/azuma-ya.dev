@@ -1,5 +1,0 @@
----
-type: BlogSubPage
----
-
-## test subpage

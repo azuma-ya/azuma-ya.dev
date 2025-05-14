@@ -11,6 +11,7 @@ import {
 import type { InternalBlog } from "@/features/blog/types/blog";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
+import { remarkSubpage } from "@/lib/remark-subpage";
 import { Markdown } from "@repo/markdown/components/markdown";
 import { Separator } from "@repo/ui/components/data-display/separator";
 import { BackButton } from "@repo/ui/components/input/back-button";
@@ -43,22 +44,30 @@ export const generateMetadata = async ({ params }: Props) => {
   };
 };
 
-export const generateStaticParams = async () => {
+export async function generateStaticParams(): Promise<
+  { slug: string; slugs: string[] }[]
+> {
   const blogs = getAllBlogPages();
   const subPages = filterBlogSubPages(blogs);
 
   if (subPages.length === 0) {
-    return notFound();
+    return [{ slug: "notfound", slugs: ["notfound"] }];
   }
 
-  return subPages.map((blog) => ({
-    slug: blog.slugParts[0],
-    slugs: blog.slugParts.slice(1),
-  }));
-};
+  return subPages
+    .filter((blog) => blog.slugParts && blog.slugParts.length > 0)
+    .map((blog) => ({
+      slug: blog.slugParts[0] as string,
+      slugs: blog.slugParts.slice(1),
+    }));
+}
 
 export default async function BlogSubPage({ params }: Props) {
   const { slug, slugs } = await params;
+
+  if (slug === "notfound" && slugs[0] === "notfound") {
+    return notFound();
+  }
 
   const blogs = getAllBlogPages();
   const internalBlogs = filterInternalBlogs(blogs);
@@ -89,7 +98,9 @@ export default async function BlogSubPage({ params }: Props) {
           <Toc className="overflow-y-auto max-h-[calc(100vh-16rem)] hidden-scrollbar" />
         </aside>
         <article className="space-y-4 min-w-0 w-full">
-          <Markdown metas={metas}>{blog.content}</Markdown>
+          <Markdown metas={metas} remarkPlugins={[remarkSubpage]}>
+            {blog.content}
+          </Markdown>
           <Separator />
           <FooterNav prev={prev} next={next} />
         </article>

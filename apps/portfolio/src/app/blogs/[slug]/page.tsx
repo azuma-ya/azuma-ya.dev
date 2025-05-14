@@ -15,6 +15,7 @@ import { filterInternalBlogs } from "@/features/blog/lib/utils";
 import type { InternalBlog } from "@/features/blog/types/blog";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
+import { remarkSubpage } from "@/lib/remark-subpage";
 
 interface Props {
   params: Promise<{
@@ -46,13 +47,9 @@ export const generateStaticParams = async () => {
   const blogs = getAllBlogs();
   const internalBlogs = filterInternalBlogs(blogs);
 
-  if (internalBlogs.length === 0) {
-    return notFound();
-  }
-
-  return internalBlogs.map((blog) => ({
-    slug: blog.slug,
-  }));
+  return [{ slug: "notfound" }].concat(
+    internalBlogs.map((blog) => ({ slug: blog.slug })),
+  );
 };
 
 const BlogDetailPage = async ({ params }: Props) => {
@@ -85,7 +82,9 @@ const BlogDetailPage = async ({ params }: Props) => {
         <article className="space-y-4 min-w-0 w-full">
           <BlogHeader blog={blog} />
           <BadgeList tags={blog.tags} isLink />
-          <Markdown metas={metas}>{blog.content}</Markdown>
+          <Markdown metas={metas} remarkPlugins={[remarkSubpage]}>
+            {blog.content}
+          </Markdown>
           <Separator />
           <FooterNav prev={prev} next={next} />
         </article>
