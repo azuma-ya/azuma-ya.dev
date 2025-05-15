@@ -27,7 +27,11 @@ export const InternalBlog = defineDocumentType(() => ({
         type: "string",
       },
       resolve: (blog) =>
-        blog._raw.sourceFileDir.replace(/\.md$/, "").split("/").slice(1),
+        blog._raw.sourceFileDir
+          .replace(/\.md$/, "")
+          .split("/")
+          .slice(1)
+          .filter((dir) => !dir.match(/^\(.*\)$/)),
     },
   },
 }));
@@ -51,7 +55,11 @@ export const ExternalBlog = defineDocumentType(() => ({
         type: "string",
       },
       resolve: (blog) =>
-        blog._raw.sourceFileDir.replace(/\.md$/, "").split("/").slice(1),
+        blog._raw.sourceFileDir
+          .replace(/\.md$/, "")
+          .split("/")
+          .slice(1)
+          .filter((dir) => !dir.match(/^\(.*\)$/)),
     },
   },
 }));
