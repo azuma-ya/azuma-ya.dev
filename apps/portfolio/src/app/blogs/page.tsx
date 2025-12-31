@@ -89,7 +89,7 @@ const BlogListPage = () => {
       </div>
       {pinnedBlogs.length > 0 && (
         <section className="space-y-2">
-          <h2 className="text-lg font-bold text-blue-500">Pinned</h2>
+          <h2 className="text-lg font-bold">Pinned</h2>
           <ul className="space-y-1">
             {pinnedBlogs.map((blog) => (
               <li key={getKey(blog)}>

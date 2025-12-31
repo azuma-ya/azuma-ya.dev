@@ -18,7 +18,7 @@ export const BookItem = ({ data }: Props) => {
         <Bookmark
           className="absolute -top-1 left-2"
           strokeWidth={0}
-          fill="oklch(62.3% 0.214 259.815)"
+          fill="hsl(0, 0%, 9%)"
         />
       )}
     </div>

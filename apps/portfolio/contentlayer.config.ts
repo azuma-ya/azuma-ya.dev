@@ -105,8 +105,32 @@ export const BlogSubPage = defineDocumentType(() => ({
   },
 }));
 
+export const Work = defineDocumentType(() => ({
+  name: "Work",
+  filePathPattern: "work/**/*.md",
+  fields: {
+    title: { type: "string", required: true },
+    createdAt: { type: "string", required: true },
+    updatedAt: { type: "string", required: false },
+    description: { type: "string", required: true },
+    tags: { type: "list", of: { type: "string" }, required: true },
+    url: { type: "string", required: true },
+    isPinned: { type: "boolean", required: false },
+    type: { type: "string", required: true },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => {
+        const name = path.basename(doc._raw.sourceFileName, ".md");
+        return name;
+      },
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "public/content",
-  contentDirInclude: ["blog", "book"],
-  documentTypes: [InternalBlog, ExternalBlog, Book, BlogSubPage],
+  contentDirInclude: ["blog", "book", "work"],
+  documentTypes: [InternalBlog, ExternalBlog, Book, BlogSubPage, Work],
 });

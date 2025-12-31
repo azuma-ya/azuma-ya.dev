@@ -1,4 +1,4 @@
-import { Bookmark } from "lucide-react";
+import { Bookmark, Library } from "lucide-react";
 import Link from "next/link";
 
 import { BaseLayout } from "@/components/layout/base-layout";
@@ -32,13 +32,10 @@ const LibraryPage = async () => {
   return (
     <BaseLayout title="Library">
       <p className="text-muted-foreground">list of my read books</p>
-      <div className="flex items-center justify-between gap-2 w-full">
-        <Separator className="basis-1/3" />
-        <div className="flex items-center gap-2">
-          <Bookmark className="text-blue-500 size-4" />
-          <p className="text-blue-500">Bookmarks</p>
-        </div>
-        <Separator className="basis-1/3" />
+      <div className="flex items-center justify-between gap-2 w-full mt-6">
+        <Separator className="basis-4" />
+        <Bookmark className="size-4" />
+        <Separator className="flex-1" />
       </div>
       <ul className="grid grid-cols-2 gap-6 place-items-center items-start my-8 sm:grid-cols-3 md:grid-cols-4">
         {pinnedBooks.map((book, index) => (
@@ -56,9 +53,9 @@ const LibraryPage = async () => {
         ))}
       </ul>
       <div className="flex items-center justify-between gap-2 w-full">
-        <Separator className="basis-1/3" />
-        <p className="text-muted-foreground">List</p>
-        <Separator className="basis-1/3" />
+        <Separator className="basis-4" />
+        <Library className="size-4" />
+        <Separator className="flex-1" />
       </div>
       <ul className="grid grid-cols-2 gap-6 place-items-center items-start my-8 sm:grid-cols-3 md:grid-cols-4">
         {unpinnedBooks.map((book, index) => (
