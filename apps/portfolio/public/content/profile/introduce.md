@@ -20,9 +20,12 @@ TypeScript、React、Next.jsを用いたアプリケーション開発の経験�
 
 # Career
 
+2025
+
+- 株式会社 CATENAS アプリ開発
+
 2024
 
 - レバレジーズ株式会社サマーインターン
-- 株式会社 CATENAS アプリ開発
 
 :::
