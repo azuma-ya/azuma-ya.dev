@@ -3,7 +3,7 @@ title: Web音声プレイヤー
 createdAt: 2025-12-31
 tags:
   - Next.js
-description: ローカルファイル、クラウドファイル一元的にWebで再生できる音声プレイヤー
+description: ローカルファイル、クラウドファイルを一元的にWebで再生できる音声プレイヤー
 url: https://audio.azuma-ya.dev
 type: Work
 ---
