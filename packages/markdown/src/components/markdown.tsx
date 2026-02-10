@@ -13,6 +13,7 @@ import type { Meta } from "../utils/meta";
 
 import { rehypeHeadFormat } from "../rehype/rehype-head-format";
 import { rehypeHeadLinker } from "../rehype/rehype-head-linker";
+import { rehypeSafeSlug } from "../rehype/rehype-safe-slug";
 import { remarkCallout } from "../remark/remark-callout";
 import { remarkLinkCard } from "../remark/remark-link-card";
 import { remarkSection } from "../remark/remark-section";
@@ -54,6 +55,7 @@ export const Markdown = ({
       rehypePlugins={[
         rehypeKatex,
         rehypeSlug,
+        rehypeSafeSlug,
         rehypeHeadFormat,
         rehypeHeadLinker,
         ...(options.rehypePlugins ?? []),
