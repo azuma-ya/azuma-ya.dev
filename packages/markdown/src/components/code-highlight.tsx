@@ -5,6 +5,8 @@ import type { JSX, ReactNode } from "react";
 import ShikiHighlighter, { isInlineCode, type Element } from "react-shiki";
 import type { BundledLanguage } from "shiki";
 
+import { Mermaid } from "./mermaid";
+
 interface CodeHighlightProps {
   className?: string | undefined;
   children?: ReactNode | undefined;
@@ -22,6 +24,10 @@ export const CodeHighlight = ({
   const language = match ? (match[1] as BundledLanguage) : undefined;
 
   const isInline: boolean | undefined = node ? isInlineCode(node) : undefined;
+
+  if (!isInline && language === "mermaid") {
+    return <Mermaid>{String(children)}</Mermaid>;
+  }
 
   return !isInline ? (
     <ShikiHighlighter
