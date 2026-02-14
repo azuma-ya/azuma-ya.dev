@@ -2,7 +2,7 @@
 @import "@repo/ui/globals.css";
 
 .markdown {
-  @apply text-foreground leading-normal break-words text-base;
+  @apply text-foreground break-words text-base leading-relaxed;
 
   > * {
     @apply mb-2;
@@ -41,7 +41,7 @@
   }
 
   p {
-    @apply mt-4;
+    @apply mt-7;
   }
 
   li {
