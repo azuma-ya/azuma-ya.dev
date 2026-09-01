@@ -1,7 +1,7 @@
 import { Button } from "@repo/ui/components/input/button";
 import { ThemeToggleButton } from "@repo/ui/components/input/theme-toggle-button";
 import { Container } from "@repo/ui/components/layout/container";
-
+import { FileCodeCorner } from "lucide-react";
 import { MainSidebarButton } from "@/features/sidebar/components/main-sidebar-button";
 import { Navigation } from "./navigation";
 
@@ -21,7 +21,7 @@ export const Header = () => {
               target="_blank"
               rel="noreferrer"
             >
-              {/* <Github className="size-5!" /> */}
+              <FileCodeCorner />
             </a>
           </Button>
           <ThemeToggleButton variant="ghost" />

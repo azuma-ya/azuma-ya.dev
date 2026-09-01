@@ -1,4 +1,3 @@
-import { Bookmark } from "lucide-react";
 import type { Book } from "../types/book";
 import { BookImage } from "./book-image";
 
@@ -14,13 +13,13 @@ export const BookItem = ({ data }: Props) => {
         <h2 className="text-sm font-bold">{data.title}</h2>
         <p className="text-xs">{data.author}</p>
       </hgroup>
-      {data.isPinned && (
+      {/* {data.isPinned && (
         <Bookmark
           className="absolute -top-1 left-2"
-          strokeWidth={0}
-          fill="hsl(0, 0%, 9%)"
+          // strokeWidth={0}
+          // fill="hsl(var(--background))"
         />
-      )}
+      )} */}
     </div>
   );
 };
