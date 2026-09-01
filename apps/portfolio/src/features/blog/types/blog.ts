@@ -9,6 +9,7 @@ const baseBlogSchema = z.object({
   tags: z.array(z.string()),
   categories: z.array(z.string()),
   isPinned: z.boolean().default(false),
+  hidden: z.boolean().default(false),
 });
 
 export const externalBlogSchema = baseBlogSchema.and(

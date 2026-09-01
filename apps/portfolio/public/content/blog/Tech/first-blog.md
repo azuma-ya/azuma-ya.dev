@@ -11,36 +11,44 @@ type: InternalBlog
 
 ## ポートフォリオサイト兼ブログを作った
 
-個人ブログを作ったといっても、以前からポートフォリオサイトやブログ自体はすでにありました。今回はそれらのリニューアルで、サイト自体も0から作ったし、ブログも0から書いていきたいと考えています。なのでまぁ、初記事といっても差し支えないでしょう。
+個人ブログを作ったといっても、以前からポートフォリオサイトやブログ自体はすでに実装したことがあった。今回はそれらのリニューアルで、サイト自体も0から作ったし、ブログも0から書いていきたいと考えている。なのでまぁ、初記事といっても差し支えないだろう。
 
 ## Azuma-ya.dev を支える技術
 
 - [TypeScript](https://www.typescriptlang.org/)
-必須です。もう型がなければ生きていけない体になってしまいました。
+必須である。もう型がなければ生きていけない体になってしまった。
 - [React](https://react.dev/)、[Next.js](https://nextjs.org/)
-メインフレームワーク。よく使っています。
+メインフレームワーク。よく使っている。
 - [Cloudflare Pages](https://pages.cloudflare.com/)
-デプロイ先です。
-- [Contentlayer](https://contentlayer.dev/)
-mdファイルの管理に使用しています。
+デプロイ先である。
 - [unified.js](https://unifiedjs.com/)、[remark](https://github.com/remarkjs/remark?tab=readme-ov-file#syntax-tree)、[rehype](https://github.com/rehypejs/rehype)
-Markdownをhtmlに変換するために利用しています。今回は[React Markdwon](https://github.com/remarkjs/react-markdown)も利用しました。
+Markdownをhtmlに変換するために利用しています。今回は[React Markdwon](https://github.com/remarkjs/react-markdown)も利用した。
 
 ### Markdownの変換
 
-いままでにReact Markdownを使用したことはあったのですが、今回は独自記法も採用したかったので、remark、rehypeに入門してみました。入門といっても、ほんのさわりしかしていないので、理解はしていません。
+今までに[React Markdown](https://github.com/remarkjs/react-markdown)を使用したことはあったが、今回は独自記法も採用したかったため、[remark](https://github.com/remarkjs/remark)、[rehype](https://github.com/rehypejs/rehype)に入門してみた。入門といっても、ほんのさわりしかしていないので、理解はしていない。
 
-```md
-                                                           react-markdown
-         +----------------------------------------------------------------------------------------------------------------+
-         |                                                                                                                |
-         |  +----------+        +----------------+        +---------------+       +----------------+       +------------+ |
-         |  |          |        |                |        |               |       |                |       |            | |
-markdown-+->+  remark  +-mdast->+ remark plugins +-mdast->+ remark-rehype +-hast->+ rehype plugins +-hast->+ components +-+->react elements
-         |  |          |        |                |        |               |       |                |       |            | |
-         |  +----------+        +----------------+        +---------------+       +----------------+       +------------+ |
-         |                                                                                                                |
-         +----------------------------------------------------------------------------------------------------------------+
+```mermaid
+flowchart TD
+    markdown(markdown)
+    react_elements(react elements)
+
+    subgraph react_markdown["react-markdown"]
+        direction TD
+        remark[remark]
+        remark_plugins[remark plugins]
+        remark_rehype[remark-rehype]
+        rehype_plugins[rehype plugins]
+        components[components]
+
+        remark -- "mdast" --> remark_plugins
+        remark_plugins -- "mdast" --> remark_rehype
+        remark_rehype -- "hast" --> rehype_plugins
+        rehype_plugins -- "hast" --> components
+    end
+
+    markdown --> remark
+    components --> react_elements
 ```
 
 今回実装したのは上記の
@@ -49,29 +57,28 @@ markdown-+->+  remark  +-mdast->+ remark plugins +-mdast->+ remark-rehype +-hast
 - remark-rehypeのhandlers
 - components
 
-です。
+である。
 
 #### Remark plugins
 
-ここのプラグインで独自記法を検知して、mdastに変換します。検知といっても、今回行ったのはremark directiveライブラリを利用して、カスタムディレクティブを実装したくらいです。
-今後はより自分好みな記法を実装したいですね。
+ここのプラグインで独自記法を検知して、mdastに変換する。検知といっても、今回行ったのはremark directiveライブラリを利用して、カスタムディレクティブを実装したくらいである。今後はより自分好みな記法を実装したい。なおremark directiveに関しては、[remark directive](https://github.com/remarkjs/remark-directives)を参考にしてほしい。
 
 #### Remark-rehypeのhandlers
 
-remark-rehypeのhandlersで、mdastをhastに変換します。独自実装したmdastを対応するhtmlの構文木に直す必要があるためです。
+remark-rehypeのhandlersで、mdastをhastに変換する。独自実装したmdastを対応するhtmlの構文木に直す必要があるためだ。
 
 #### Components
 
-remark-rehypeのhandlersで、独自記法を直接htmlに直しても大丈夫なのですが、せっかくなのでreact componentsを実装しそれを利用することにしました。
+remark-rehypeのhandlersで、hastをreact componentsに変換する。独自記法を直接htmlに直しても大丈夫なのだが、せっかくなのでreact componentsを実装しそれを利用することにした。
 
-そのため、remark-rehypeのhandlersでは独自記法のMarkdownを独自のhtmlタグに直しています。
+したがって、remark-rehypeのhandlersでは独自記法のMarkdownを独自のhtmlタグに直している。
 
 ### Markdownのレンダリング
 
-以下のページにAzuma-ya.devで利用できるMarkdownの記法についてまとめています。
+以下のページにAzuma-ya.devで利用できるMarkdownの記法についてまとめた。
 
 https://azuma-ya.dev/blogs/markdown
 
 ## 終わりに
 
-頑張ってブログ投稿していきます。
+日々考えたこと、感じたこと、学んだことを発信していきたいと思う。

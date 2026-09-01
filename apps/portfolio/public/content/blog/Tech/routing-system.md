@@ -6,6 +6,7 @@ tags:
     - Blog
 description: Azuma-ya.devのブログシステム（ルーティングシステム）について紹介します。
 type: InternalBlog
+hidden: true
 ---
 
 このブログはMarkdownファイルを使用し、githubを用いて管理しています。ブログはpublicのblogディレクトリはいかに配置されており、ファイル名が、URLに対応するように実装されています。今回は、そのblogディレクトリ配下におけるルーティングシステムについて紹介します。

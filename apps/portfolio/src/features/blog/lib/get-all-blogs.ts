@@ -12,5 +12,10 @@ export const getAllBlogs = (): (InternalBlog | ExternalBlog)[] => {
 
   const parsedBlogs = blogs.map((blog) => blogSchema.parse(blog));
 
-  return parsedBlogs as (InternalBlog | ExternalBlog)[];
+  return parsedBlogs.filter((blog) => {
+    // Only baseBlogSchema has hidden property. We check if hidden is true and filter them out.
+    // To be safe, we can check if it exists or use property accessor.
+    if ('hidden' in blog && blog.hidden) return false;
+    return true;
+  }) as (InternalBlog | ExternalBlog)[];
 };
