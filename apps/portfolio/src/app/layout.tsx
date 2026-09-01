@@ -1,7 +1,6 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Noto_Sans_JP } from "next/font/google";
-
 import { cn } from "@repo/ui/lib/utils";
+import { Noto_Sans_JP } from "next/font/google";
 
 import { Footer } from "@/components/base/footer";
 import { Header } from "@/components/base/header";

@@ -1,11 +1,10 @@
-import { ChevronRight, File, Folder, Tag } from "lucide-react";
-
 import { Button } from "@repo/ui/components/input/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@repo/ui/components/surface/collapsible";
+import { ChevronRight, File, Folder, Tag } from "lucide-react";
 
 import type { CategoryBlogItem, CategoryTree } from "../types/tree";
 

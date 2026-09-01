@@ -1,11 +1,10 @@
-import { auth, signOut } from "@/lib/auth";
-
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@repo/ui/components/data-display/avatar";
 import { Button } from "@repo/ui/components/input/button";
+import { auth, signOut } from "@/lib/auth";
 
 export const runtime = "edge";
 

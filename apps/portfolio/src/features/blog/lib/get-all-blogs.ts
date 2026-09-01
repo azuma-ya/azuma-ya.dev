@@ -1,17 +1,16 @@
-import { allExternalBlogs, allInternalBlogs } from "contentlayer/generated";
-
+import { getMarkdownContents } from "@/lib/content/markdown";
 import {
+  blogSchema,
   type ExternalBlog,
   type InternalBlog,
-  blogSchema,
 } from "../types/blog";
 
 export const getAllBlogs = (): (InternalBlog | ExternalBlog)[] => {
-  const blogs = [...allInternalBlogs, ...allExternalBlogs];
-
-  const parsedBlogs = blogs.map((blog) =>
-    blogSchema.parse({ ...blog, content: blog.body.raw }),
+  const blogs = getMarkdownContents("blog").filter(
+    (blog) => blog.type === "InternalBlog" || blog.type === "ExternalBlog",
   );
+
+  const parsedBlogs = blogs.map((blog) => blogSchema.parse(blog));
 
   return parsedBlogs as (InternalBlog | ExternalBlog)[];
 };

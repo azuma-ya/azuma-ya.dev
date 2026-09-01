@@ -1,6 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { AspectRatio } from "@repo/ui/components/layout/aspect-ratio";
+import { ArrowUpRight } from "lucide-react";
 
 import type { Book } from "../types/book";
 
@@ -14,11 +13,17 @@ export const BookImage = ({ data }: Props) => {
       ratio={5 / 7}
       className="bg-muted rounded-sm flex items-center justify-center overflow-hidden shadow-[-6px_6px_8px_0px_rgba(0,_0,_0,_0.2)] relative after:content-[''] after:absolute after:inset-0 after:shadow-[inset_6px_0px_5px_0px_rgba(0,_0,_0,_0.3)] dark:after:shadow-[inset_6px_0px_5px_0px_rgba(0,_0,_0,_0.6)] after:pointer-events-none"
     >
-      <img
-        src={data.image}
-        alt={data.title}
-        className="object-cover size-full"
-      />
+      {data.image ? (
+        <img
+          src={data.image}
+          alt={data.title}
+          className="object-cover size-full"
+        />
+      ) : (
+        <div className="flex size-full flex-col items-center justify-center gap-3 p-3 text-center text-muted-foreground">
+          <span className="line-clamp-4 text-xs font-medium">{data.title}</span>
+        </div>
+      )}
       <a
         href={data.url}
         target="_blank"

@@ -1,5 +1,3 @@
-import { Github } from "lucide-react";
-
 import { Button } from "@repo/ui/components/input/button";
 import { ThemeToggleButton } from "@repo/ui/components/input/theme-toggle-button";
 import { Container } from "@repo/ui/components/layout/container";
@@ -23,7 +21,7 @@ export const Header = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <Github className="size-5!" />
+              {/* <Github className="size-5!" /> */}
             </a>
           </Button>
           <ThemeToggleButton variant="ghost" />

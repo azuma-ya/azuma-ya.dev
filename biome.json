@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.11/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -7,20 +7,25 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "public", ".next"]
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/public",
+      "!**/.next",
+      "!**/out",
+      "!**/*.css"
+    ]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "nursery": { "useSortedClasses": "off" },
       "correctness": {
         "noUnusedImports": "warn",
@@ -28,6 +33,9 @@
       },
       "style": {
         "noNonNullAssertion": "off"
+      },
+      "a11y": {
+        "useSemanticElements": "off"
       },
       "suspicious": {
         "noArrayIndexKey": "off"
@@ -44,7 +52,8 @@
       "enabled": true
     },
     "parser": {
-      "cssModules": true
+      "cssModules": true,
+      "tailwindDirectives": true
     }
   },
   "javascript": {

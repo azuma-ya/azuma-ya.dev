@@ -1,8 +1,8 @@
-import { db } from "@/db";
-import { userInfos } from "@/db/schema";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { handle } from "hono/vercel";
+import { db } from "@/db";
+import { userInfos } from "@/db/schema";
 
 export const runtime = "edge";
 export const maxDuration = 59;

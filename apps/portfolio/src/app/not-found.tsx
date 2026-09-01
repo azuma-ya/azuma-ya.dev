@@ -1,5 +1,5 @@
-import { getInfo } from "@/features/profile/lib/get-info";
 import { Container } from "@repo/ui/components/layout/container";
+import { getInfo } from "@/features/profile/lib/get-info";
 
 export const generateMetadata = () => {
   const info = getInfo();

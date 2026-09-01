@@ -1,7 +1,6 @@
+import { Button } from "@repo/ui/components/input/button";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Link from "next/link";
-
-import { Button } from "@repo/ui/components/input/button";
 import type { Book } from "../types/book";
 
 interface Props {

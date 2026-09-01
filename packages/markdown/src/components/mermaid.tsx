@@ -20,7 +20,6 @@ export const Mermaid = ({ children }: MermaidProps) => {
     const renderDiagram = async () => {
       try {
         const mermaid = (await import("mermaid")).default;
-        const isDark = document.documentElement.classList.contains("dark");
 
         mermaid.initialize({
           startOnLoad: false,

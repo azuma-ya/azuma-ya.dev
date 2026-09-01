@@ -1,7 +1,6 @@
+import { Button } from "@repo/ui/components/input/button";
 import { ArrowUpRight, Pin } from "lucide-react";
 import Link from "next/link";
-
-import { Button } from "@repo/ui/components/input/button";
 
 import type { ExternalBlog, InternalBlog } from "../types/blog";
 

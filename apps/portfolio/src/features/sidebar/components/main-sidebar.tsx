@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { Separator } from "@repo/ui/components/data-display/separator";
 import {
   Sheet,
@@ -11,6 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@repo/ui/components/feedback/sheet";
+import { useRouter } from "next/navigation";
 
 import { Navigation } from "@/components/base/navigation";
 import { Links } from "@/features/profile/components/links";

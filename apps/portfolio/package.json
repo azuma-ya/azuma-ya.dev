@@ -7,40 +7,38 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"next dev --turbopack\" \"bunx contentlayer dev\"",
+    "dev": "concurrently \"next dev --turbopack\" \"node scripts/watch-content.mjs\" \"node scripts/warm-dev-routes.mjs\"",
     "build": "next build",
     "start": "npx serve@latest out",
     "check": "biome check --write *"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^15.1.6",
-    "@next/third-parties": "^15.1.6",
+    "@next/bundle-analyzer": "^16.3.4",
+    "@next/third-parties": "^16.3.4",
     "@repo/markdown": "*",
     "@repo/ui": "*",
-    "contentlayer": "^0.3.4",
-    "date-fns": "^4.1.0",
-    "feed": "^4.2.2",
+    "date-fns": "^4.4.0",
+    "feed": "^6.0.0",
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.474.0",
-    "next": "^15.1.6",
-    "next-contentlayer": "^0.3.4",
-    "next-themes": "^0.4.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tocbot": "^4.34.0",
-    "zod": "^3.24.1",
-    "zustand": "^5.0.3"
+    "lucide-react": "^1.39.0",
+    "next": "^16.3.4",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tocbot": "^4.36.8",
+    "zod": "^4.5.4",
+    "zustand": "^5.0.15"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.7",
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@repo/typescript-config": "*",
-    "@tailwindcss/postcss": "^4.0.4",
-    "@types/node": "^22",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
-    "concurrently": "^9.1.2",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^4.0.4",
-    "typescript": "^5.7.3"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.4.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "concurrently": "^10.0.5",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
   }
 }

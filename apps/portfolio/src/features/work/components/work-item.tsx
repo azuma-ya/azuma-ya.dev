@@ -1,7 +1,6 @@
+import { AspectRatio } from "@repo/ui/components/layout/aspect-ratio";
 import { ArrowRight, Image as ImageIcon, Pin } from "lucide-react";
 import Link from "next/link";
-
-import { AspectRatio } from "@repo/ui/components/layout/aspect-ratio";
 
 import type { Work } from "../types/work";
 

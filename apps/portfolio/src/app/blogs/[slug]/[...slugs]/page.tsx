@@ -1,5 +1,8 @@
+import { Markdown } from "@repo/markdown/components/markdown";
+import { Separator } from "@repo/ui/components/data-display/separator";
+import { BackButton } from "@repo/ui/components/input/back-button";
+import { Container } from "@repo/ui/components/layout/container";
 import { notFound } from "next/navigation";
-
 import { Toc } from "@/components/data-display/toc";
 import { FooterNav } from "@/features/blog/components/footer-nav";
 import { getAllBlogPages } from "@/features/blog/lib/get-all-blog-pages";
@@ -12,10 +15,6 @@ import type { InternalBlog } from "@/features/blog/types/blog";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
 import { remarkSubpage } from "@/lib/remark-subpage";
-import { Markdown } from "@repo/markdown/components/markdown";
-import { Separator } from "@repo/ui/components/data-display/separator";
-import { BackButton } from "@repo/ui/components/input/back-button";
-import { Container } from "@repo/ui/components/layout/container";
 
 interface Props {
   params: Promise<{

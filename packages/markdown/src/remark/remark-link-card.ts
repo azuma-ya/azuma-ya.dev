@@ -1,7 +1,6 @@
 import { h } from "hastscript";
-import { visit } from "unist-util-visit";
-
 import type { Link, LinkData, Node, Parent, PhrasingContent } from "mdast";
+import { visit } from "unist-util-visit";
 import {
   createRehypeHandlers,
   createRemarkPlugin,

@@ -1,7 +1,3 @@
-import { Fragment } from "react";
-
-import { format } from "date-fns";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,6 +6,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@repo/ui/components/navigation/breadcrumb";
+
+import { format } from "date-fns";
+import { Fragment } from "react";
 
 import type { InternalBlog } from "../types/blog";
 

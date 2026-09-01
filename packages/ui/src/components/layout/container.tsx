@@ -1,8 +1,7 @@
-import { forwardRef } from "react";
-
-import { type VariantProps, cva } from "class-variance-authority";
-
 import { cn } from "@repo/ui/lib/utils";
+
+import { cva, type VariantProps } from "class-variance-authority";
+import { forwardRef } from "react";
 
 const containerVariants = cva("mx-auto w-full px-4", {
   variants: {

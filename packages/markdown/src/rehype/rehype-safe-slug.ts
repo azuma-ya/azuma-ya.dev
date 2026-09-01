@@ -1,7 +1,6 @@
-import { visit } from "unist-util-visit";
-
 import type { Root } from "hast";
 import type { Plugin } from "unified";
+import { visit } from "unist-util-visit";
 
 /**
  * Ensures heading IDs are valid CSS selectors by prefixing

@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-
 import { Markdown } from "@repo/markdown/components/markdown";
 import { BackButton } from "@repo/ui/components/input/back-button";
 import { Button } from "@repo/ui/components/input/button";
 import { Container } from "@repo/ui/components/layout/container";
-
+import { ImageIcon, SquareArrowOutUpRight } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { BadgeList } from "@/components/data-display/badge-list";
 import { Toc } from "@/components/data-display/toc";
 import { getInfo } from "@/features/profile/lib/get-info";
@@ -13,7 +12,6 @@ import { getAllWorks } from "@/features/work/lib/get-all-works";
 import { getWork } from "@/features/work/lib/get-work";
 import { getWorkThumbnailSrc } from "@/features/work/lib/thumbnail";
 import { getMetas } from "@/lib/meta";
-import { ImageIcon, SquareArrowOutUpRight } from "lucide-react";
 
 interface Props {
   params: Promise<{

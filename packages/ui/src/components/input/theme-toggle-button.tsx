@@ -1,10 +1,8 @@
 "use client";
 
+import { Button, type ButtonProps } from "@repo/ui/components/input/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
-import { Button, type ButtonProps } from "@repo/ui/components/input/button";
-import {} from "@repo/ui/components/navigation/dropdown-menu";
 
 const ThemeToggleButton = ({ variant, size, ...props }: ButtonProps) => {
   const { setTheme, theme } = useTheme();

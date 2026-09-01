@@ -1,11 +1,10 @@
+import { Separator } from "@repo/ui/components/data-display/separator";
 import { Bookmark, Library } from "lucide-react";
 import Link from "next/link";
-
 import { BaseLayout } from "@/components/layout/base-layout";
 import { BookItem } from "@/features/book/components/book-item";
 import { getAllBooks } from "@/features/book/lib/get-all-books";
 import { getInfo } from "@/features/profile/lib/get-info";
-import { Separator } from "@repo/ui/components/data-display/separator";
 
 export const generateMetadata = () => {
   const info = getInfo();

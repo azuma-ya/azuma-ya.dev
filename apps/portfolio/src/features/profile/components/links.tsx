@@ -1,8 +1,7 @@
-import { AtSign, Rss } from "lucide-react";
-
 import { Github } from "@repo/ui/components/icon/github";
 import { X } from "@repo/ui/components/icon/x";
 import { Button } from "@repo/ui/components/input/button";
+import { AtSign, Rss } from "lucide-react";
 
 import type { Info } from "../types/info";
 

@@ -1,7 +1,6 @@
-import type { HTMLAttributes } from "react";
-
 import { cn } from "@repo/ui/lib/utils";
 import { Link } from "lucide-react";
+import type { HTMLAttributes } from "react";
 
 interface HeadLinkProps extends HTMLAttributes<HTMLAnchorElement> {
   node?: Element | undefined;

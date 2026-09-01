@@ -1,11 +1,10 @@
-import type { Link } from "mdast";
-import { visit } from "unist-util-visit";
-
 import {
   createRehypeHandlers,
   createRemarkPlugin,
   createRemarkRehypePlugin,
 } from "@repo/markdown/utils/helper";
+import type { Link } from "mdast";
+import { visit } from "unist-util-visit";
 
 const plugin = createRemarkPlugin(() => {
   return (tree) => {

@@ -1,13 +1,14 @@
-import { allInternalBlogs } from "contentlayer/generated";
-
+import { getMarkdownContents } from "@/lib/content/markdown";
 import { type Blog, blogSchema } from "../types/blog";
 
 export const getBlog = <T = Blog>(slug: string): T | undefined => {
-  const blog = allInternalBlogs.find((blog) => blog.slug === slug);
+  const blog = getMarkdownContents("blog").find(
+    (blog) => blog.type === "InternalBlog" && blog.slug === slug,
+  );
 
   if (!blog) return undefined;
 
-  const parsedBlog = blogSchema.parse({ ...blog, content: blog.body.raw });
+  const parsedBlog = blogSchema.parse(blog);
 
   return parsedBlog as T;
 };

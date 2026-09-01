@@ -1,9 +1,9 @@
-import { db } from "@/db";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import authConfig from "auth.config";
 import type {} from "next";
 import NextAuth, { type NextAuthResult, type Session } from "next-auth";
 import type {} from "next-auth/providers";
+import { db } from "@/db";
 
 type ApiAuthHandler = () => Promise<Session | null>;
 

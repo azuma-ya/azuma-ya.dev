@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import { Badge } from "@repo/ui/components/data-display/badge";
+import Link from "next/link";
 
 interface Props {
   tags: string[];

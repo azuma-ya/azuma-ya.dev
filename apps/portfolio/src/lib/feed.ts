@@ -1,6 +1,6 @@
+import { Feed } from "feed";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getInfo } from "@/features/profile/lib/get-info";
-import { Feed } from "feed";
 
 export const generateFeed = () => {
   const url = process.env.NEXT_PUBLIC_BASE_URL;

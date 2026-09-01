@@ -1,7 +1,6 @@
-import { type VariantProps, cva } from "class-variance-authority";
-import type { ReactNode } from "react";
-
 import { cn } from "@repo/ui/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { ReactNode } from "react";
 
 const calloutVariants = cva("my-6 flex gap-2.5 rounded-lg border p-4", {
   variants: {

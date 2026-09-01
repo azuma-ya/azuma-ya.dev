@@ -1,8 +1,7 @@
-import { h } from "hastscript";
-import { visit } from "unist-util-visit";
-
 import type { Root } from "hast";
+import { h } from "hastscript";
 import type { Plugin } from "unified";
+import { visit } from "unist-util-visit";
 
 export const rehypeHeadLinker: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node) => {

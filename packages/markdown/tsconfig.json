@@ -3,8 +3,8 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
     "paths": {
+      "*": ["./*"],
       "@repo/markdown/*": ["./src/*"]
     }
   },

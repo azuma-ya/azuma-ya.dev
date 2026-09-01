@@ -14,7 +14,7 @@ export const Section = ({ className, id, node, ...props }: SectionProps) => {
     <section
       className={cn("animate-fade-in opacity-0", className)}
       style={{
-        animationDelay: `${Number.parseInt(id || "0") * 0.2}s`,
+        animationDelay: `${Number.parseInt(id || "0", 10) * 0.2}s`,
         animationFillMode: "forwards",
       }}
       id={id}

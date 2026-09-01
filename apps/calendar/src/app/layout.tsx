@@ -1,7 +1,6 @@
+import { cn } from "@repo/ui/lib/utils";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
-
-import { cn } from "@repo/ui/lib/utils";
 
 import { Footer } from "@/components/base/footer";
 import { Header } from "@/components/base/header";

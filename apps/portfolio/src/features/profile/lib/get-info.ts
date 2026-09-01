@@ -1,6 +1,5 @@
-import { infoSchema } from "../types/info";
-
 import json from "../../../../public/content/profile/info.json";
+import { infoSchema } from "../types/info";
 
 export const getInfo = () => {
   const info = infoSchema.parse(json);

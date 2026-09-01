@@ -1,8 +1,5 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-
 import { Button, type ButtonProps } from "@repo/ui/components/input/button";
 import {
   DropdownMenu,
@@ -11,6 +8,8 @@ import {
   DropdownMenuTrigger,
 } from "@repo/ui/components/navigation/dropdown-menu";
 import { cn } from "@repo/ui/lib/utils";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const ThemeButton = ({ variant, size, ...props }: ButtonProps) => {
   const { setTheme, theme } = useTheme();

@@ -1,4 +1,4 @@
-import { type SVGProps, forwardRef } from "react";
+import { forwardRef, type SVGProps } from "react";
 
 export const X = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
   (props, ref) => (

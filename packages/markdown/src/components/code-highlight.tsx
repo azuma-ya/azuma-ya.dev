@@ -1,8 +1,7 @@
 "use client";
 
 import type { JSX, ReactNode } from "react";
-// @ts-ignore
-import ShikiHighlighter, { isInlineCode, type Element } from "react-shiki";
+import ShikiHighlighter, { type Element, isInlineCode } from "react-shiki";
 import type { BundledLanguage } from "shiki";
 
 import { Mermaid } from "./mermaid";

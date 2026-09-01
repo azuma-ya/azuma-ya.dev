@@ -1,9 +1,8 @@
-import { notFound } from "next/navigation";
-
 import { Markdown } from "@repo/markdown/components/markdown";
 import { Separator } from "@repo/ui/components/data-display/separator";
 import { BackButton } from "@repo/ui/components/input/back-button";
 import { Container } from "@repo/ui/components/layout/container";
+import { notFound } from "next/navigation";
 
 import { BadgeList } from "@/components/data-display/badge-list";
 import { Toc } from "@/components/data-display/toc";

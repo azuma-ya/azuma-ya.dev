@@ -1,8 +1,7 @@
 import { Slot } from "@radix-ui/react-slot";
+import { cn } from "@repo/ui/lib/utils";
 import { ChevronRight, MoreHorizontal } from "lucide-react";
 import * as React from "react";
-
-import { cn } from "@repo/ui/lib/utils";
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
@@ -61,11 +60,8 @@ const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<"span">
 >(({ className, ...props }, ref) => (
-  // biome-ignore lint/a11y/useFocusableInteractive: <explanation>
   <span
     ref={ref}
-    role="link"
-    aria-disabled="true"
     aria-current="page"
     className={cn("font-normal text-foreground", className)}
     {...props}
@@ -107,10 +103,10 @@ BreadcrumbEllipsis.displayName = "BreadcrumbElipssis";
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 };

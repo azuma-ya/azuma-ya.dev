@@ -1,10 +1,9 @@
-import { allWorks } from "contentlayer/generated";
-
+import { getMarkdownContents } from "@/lib/content/markdown";
 import { type Work, workSchema } from "../types/work";
 
 export const getAllWorks = (): Work[] => {
-  const parsedWorks = allWorks.map((work) =>
-    workSchema.parse({ ...work, content: work.body.raw }),
+  const parsedWorks = getMarkdownContents("work").map((work) =>
+    workSchema.parse(work),
   );
 
   return parsedWorks as Work[];

@@ -1,5 +1,5 @@
-import { signIn } from "@/lib/auth";
 import { Button } from "@repo/ui/components/input/button";
+import { signIn } from "@/lib/auth";
 
 export const runtime = "edge";
 

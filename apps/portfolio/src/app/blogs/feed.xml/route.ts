@@ -1,5 +1,5 @@
-import { generateFeed } from "@/lib/feed";
 import { NextResponse } from "next/server";
+import { generateFeed } from "@/lib/feed";
 
 export const dynamic = "force-static";
 
