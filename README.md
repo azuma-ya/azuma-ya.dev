@@ -1,12 +1,12 @@
 # Azuma-ya.dev
 
-このリポジトリでは自身のポートフォリオサイトや、いくつかの関連するアプリケーションの構築をしています。構築には[Turborepo](https://turborepo.org/)を使用しており、[Cloudflare](https://cloudflare.com/)でデプロイしています。
+このリポジトリでは自身のポートフォリオサイトや、いくつかの関連するアプリケーションの構築をしている。
 
 Website URL: https://azuma-ya.dev
 
 ## プロジェクト構成
 
-このプロジェクトは以下のような構成になっています：
+このプロジェクトは以下のような構成になっている
 
 ```
 ├── apps/          # アプリケーション
@@ -24,11 +24,6 @@ Website URL: https://azuma-ya.dev
 - デプロイ: Cloudflare
 
 ## 開発方法
-
-### 必要要件
-
-- Node.js >= 20.0.0
-- Bun 1.1.37以上
 
 ### セットアップ
 
