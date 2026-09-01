@@ -40,22 +40,22 @@ const fetchMetaData = async (url: string): Promise<Meta> => {
     }
 
     const text = await res.text();
-    const { JSDOM } = await import("jsdom");
-    const doms = JSDOM.fragment(text);
-    const metas = doms.querySelectorAll("meta");
+    const { load } = await import("cheerio");
+    const $ = load(text);
+    const metas = $("meta");
 
     for (const meta of metas) {
-      const np = meta.getAttribute("name") || meta.getAttribute("property");
+      const np = $(meta).attr("name") || $(meta).attr("property");
       if (typeof np !== "string") continue;
       if (np.match(/title/)) {
-        metaData.title = meta.getAttribute("content") || "";
+        metaData.title = $(meta).attr("content") || "";
       }
       if (np.match(/description/)) {
         metaData.description =
-          meta.getAttribute("content")?.slice(0, 100) || "";
+          $(meta).attr("content")?.slice(0, 100) || "";
       }
       if (np === "og:image") {
-        metaData.image = meta.getAttribute("content") || "";
+        metaData.image = $(meta).attr("content") || "";
       }
     }
   } catch (_e) {
