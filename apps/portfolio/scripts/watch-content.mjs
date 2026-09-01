@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, statSync, utimesSync, watch } from "node:fs";
+import { existsSync, readdirSync, statSync, writeFileSync, watch } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -7,7 +7,7 @@ const appRoot = path.resolve(
   "..",
 );
 const contentDirectory = path.join(appRoot, "public/content");
-const invalidationTarget = path.join(appRoot, "src/lib/content/markdown.ts");
+const invalidationTarget = path.join(appRoot, "src/lib/content/hmr.ts");
 const watchers = new Map();
 
 let invalidateTimer;
@@ -35,7 +35,7 @@ const invalidateContent = () => {
   clearTimeout(invalidateTimer);
   invalidateTimer = setTimeout(() => {
     const now = new Date();
-    utimesSync(invalidationTarget, now, now);
+    writeFileSync(invalidationTarget, `export const hmr = ${now.getTime()};\n`);
     console.log("[content] markdown changed, refreshed Next dev server");
   }, 50);
 };

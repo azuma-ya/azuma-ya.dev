@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.9.0"
   },
   "scripts": {
     "dev": "concurrently \"next dev --turbopack\" \"node scripts/watch-content.mjs\" \"node scripts/warm-dev-routes.mjs\"",
@@ -30,7 +30,6 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
     "@repo/typescript-config": "*",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.4.0",

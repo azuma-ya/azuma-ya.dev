@@ -1,6 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { hmr } from "./hmr";
+
+export { hmr };
 
 const contentRoot = path.join(process.cwd(), "public/content");
 
