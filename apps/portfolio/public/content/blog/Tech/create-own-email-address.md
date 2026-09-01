@@ -44,10 +44,12 @@ https://zenn.dev/the_exile/articles/cloudflare-gmail-resend
 8. 保存
 
 :::flex
+
 すると、転送先のGmailに確認メールが届きます。`Verify email address`を押すことで、Cloudflareの画面のGmailのステータスが`確認済み`になります。
 
 > ![Cloudflare](/asset/blog/create-own-email-address/2.webp)
-> :::
+
+:::
 
 ### Gmailの設定
 
@@ -72,7 +74,8 @@ GmailとCloudflareを連携するのにアプリパスワードを生成する�
 2. すべての設定を表示
 
 > ![Gmail](/asset/blog/create-own-email-address/4.webp)
-> ::: 3. アカウントとインポート 4. 名前のところにある**他のメールアドレスを追加**を押す
+::: 3. アカウントとインポート 4. 名前のところにある**他のメールアドレスを追加**を押す
+
 
 > ![Gmail](/asset/blog/create-own-email-address/5.webp)
 
@@ -81,7 +84,8 @@ GmailとCloudflareを連携するのにアプリパスワードを生成する�
 5. 名前 > 任意（メールをやり取りする際に表示される）
 
 > ![Gmail](/asset/blog/create-own-email-address/6.webp)
-> :::
+
+:::
 
 6. メールアドレス > Cloudflareで作成したメールアドレス
 7. エイリアスとして扱う > チェックする

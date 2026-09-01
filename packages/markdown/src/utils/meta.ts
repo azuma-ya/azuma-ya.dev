@@ -59,7 +59,7 @@ const fetchMetaData = async (url: string): Promise<Meta> => {
       }
     }
   } catch (_e) {
-    console.error("Failed to get metadata");
+    console.error("Failed to get metadata", _e);
   }
   return metaData;
 };
@@ -78,5 +78,5 @@ export const getMetaData = async (url: string): Promise<Meta> => {
 };
 
 export const getUrlList = (content: string): Array<string> => {
-  return content.match(/https?:\/\/[^\n\]]*/g) ?? [];
+  return content.match(/https?:\/\/[^\s\n\])]+/g) ?? [];
 };
