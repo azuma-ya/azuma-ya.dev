@@ -15,6 +15,7 @@ import type { InternalBlog } from "@/features/blog/types/blog";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
 import { remarkSubpage } from "@/lib/remark-subpage";
+import { getCanonicalUrl, getPathname } from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -24,7 +25,7 @@ interface Props {
 }
 
 export const generateMetadata = async ({ params }: Props) => {
-  const { slug } = await params;
+  const { slug, slugs } = await params;
   const blog = getBlog<InternalBlog>(slug);
 
   if (!blog) {
@@ -32,13 +33,18 @@ export const generateMetadata = async ({ params }: Props) => {
   }
 
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl(getPathname("blogs", slug, ...slugs));
 
   return {
     title: `${blog.title} | SubPage | ${info.portfolio.title}`,
     description: blog.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${blog.title} | SubPage | ${info.portfolio.title}`,
       description: blog.description,
+      url: canonicalUrl,
     },
   };
 };

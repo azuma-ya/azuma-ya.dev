@@ -5,14 +5,14 @@ import {
 } from "@repo/markdown/utils/helper";
 import type { Link } from "mdast";
 import { visit } from "unist-util-visit";
+import { getCanonicalUrl } from "@/lib/seo";
 
 const plugin = createRemarkPlugin(() => {
   return (tree) => {
     visit(tree, "link", (node: Link) => {
       if (node.url.match(/\..+\.md$/)) {
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL!;
         const fullPath = node.url.replace(/\.md$/, "");
-        node.url = `${baseUrl}/blogs/${fullPath.replace(/\./g, "/")}`;
+        node.url = getCanonicalUrl(`/blogs/${fullPath.replace(/\./g, "/")}`);
       }
     });
   };

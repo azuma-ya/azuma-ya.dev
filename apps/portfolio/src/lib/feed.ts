@@ -1,9 +1,10 @@
 import { Feed } from "feed";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getInfo } from "@/features/profile/lib/get-info";
+import { getCanonicalUrl, getPathname } from "@/lib/seo";
 
 export const generateFeed = () => {
-  const url = process.env.NEXT_PUBLIC_BASE_URL;
+  const url = getCanonicalUrl("/");
   const info = getInfo();
   const blogs = getAllBlogs();
 
@@ -14,13 +15,13 @@ export const generateFeed = () => {
     language: "ja",
     description: info.portfolio.description,
     link: url,
-    favicon: new URL("/favicon.ico", url).toString(),
+    favicon: getCanonicalUrl("/favicon.ico"),
   });
 
   for (const blog of blogs) {
     const blogUrl =
       blog.type === "InternalBlog"
-        ? new URL(`/blogs/${blog.slug}`, url).toString()
+        ? getCanonicalUrl(getPathname("blogs", blog.slug))
         : blog.url;
     feed.addItem({
       title: blog.title,
@@ -30,7 +31,9 @@ export const generateFeed = () => {
       date: blog.updatedAt ?? blog.createdAt,
       ...(blog.type === "InternalBlog" && {
         image: {
-          url: new URL(`/blogs/${blog.slug}/opengraph-image`, url).toString(),
+          url: getCanonicalUrl(
+            getPathname("blogs", blog.slug, "opengraph-image"),
+          ),
           type: "image/png",
         },
       }),

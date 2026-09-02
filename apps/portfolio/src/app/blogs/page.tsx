@@ -13,16 +13,22 @@ import { YearSection } from "@/features/blog/components/year-section";
 import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { getKey, toGroupSortByYear } from "@/features/blog/lib/utils";
 import { getInfo } from "@/features/profile/lib/get-info";
+import { getCanonicalUrl } from "@/lib/seo";
 
 export const generateMetadata = () => {
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl("/blogs");
 
   return {
     title: `Blogs | ${info.portfolio.title}`,
-    description: `${info.portfolio.title}のブログ一覧ページです。`,
+    description: `${info.portfolio.title}のブログ一覧ページ。`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `Blogs | ${info.portfolio.title}`,
-      description: `${info.portfolio.title}のブログ一覧ページです。`,
+      description: `${info.portfolio.title}のブログ一覧ページ。`,
+      url: canonicalUrl,
     },
   };
 };

@@ -5,6 +5,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import { Footer } from "@/components/base/footer";
 import { Header } from "@/components/base/header";
 import { getInfo } from "@/features/profile/lib/get-info";
+import { getBaseUrl, getCanonicalUrl } from "@/lib/seo";
 import SheetProvider from "@/providers/sheet-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 
@@ -20,7 +21,7 @@ export const generateMetadata = () => {
   const info = getInfo();
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+    metadataBase: new URL(getBaseUrl()),
     title: info.portfolio.title,
     description: info.portfolio.description,
     robots: {
@@ -50,7 +51,7 @@ const RootLayout = ({
         <link
           rel="alternate"
           type="application/xml"
-          href={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/feed.xml`}
+          href={getCanonicalUrl("/blogs/feed.xml")}
         />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "undefined"} />
       </head>

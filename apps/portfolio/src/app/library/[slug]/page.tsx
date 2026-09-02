@@ -12,6 +12,7 @@ import { getAllBooks } from "@/features/book/lib/get-all-books";
 import { getBook } from "@/features/book/lib/get-book";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getMetas } from "@/lib/meta";
+import { getCanonicalUrl, getPathname } from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -28,13 +29,18 @@ export const generateMetadata = async ({ params }: Props) => {
   }
 
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl(getPathname("library", slug));
 
   return {
     title: `${book.title} | ${info.portfolio.title}`,
     description: book.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${book.title} | ${info.portfolio.title}`,
       description: book.description,
+      url: canonicalUrl,
     },
   };
 };

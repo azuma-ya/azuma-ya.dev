@@ -6,16 +6,22 @@ import { ProfileSection } from "@/features/profile/components/profile-section";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getProfile } from "@/features/profile/lib/get-profile";
 import { getMetas } from "@/lib/meta";
+import { getCanonicalUrl } from "@/lib/seo";
 
 export const generateMetadata = () => {
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl("/");
 
   return {
     title: info.portfolio.title,
     description: info.portfolio.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: info.portfolio.title,
       description: info.portfolio.description,
+      url: canonicalUrl,
     },
   };
 };

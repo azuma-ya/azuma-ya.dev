@@ -3,6 +3,7 @@ import { X } from "@repo/ui/components/icon/x";
 import { Button } from "@repo/ui/components/input/button";
 import { AtSign, Rss } from "lucide-react";
 
+import { getCanonicalUrl } from "@/lib/seo";
 import type { Info } from "../types/info";
 
 interface Props {
@@ -14,7 +15,7 @@ export const Links = ({ data }: Props) => {
     <div className="flex gap-2 items-center justify-center">
       <Button variant="ghost" size="icon" className="rounded-full size-10">
         <a
-          href={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/feed.xml`}
+          href={getCanonicalUrl("/blogs/feed.xml")}
           target="_blank"
           tabIndex={-1}
           rel="noopener noreferrer"

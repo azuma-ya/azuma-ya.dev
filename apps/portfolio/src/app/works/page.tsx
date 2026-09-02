@@ -5,16 +5,22 @@ import { WorkItem } from "@/features/work/components/work-item";
 import { getAllWorks } from "@/features/work/lib/get-all-works";
 import { getWorkThumbnailSrc } from "@/features/work/lib/thumbnail";
 import { getKey, toGroupSortByYear } from "@/features/work/lib/utils";
+import { getCanonicalUrl } from "@/lib/seo";
 
 export const generateMetadata = () => {
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl("/works");
 
   return {
     title: `Works | ${info.portfolio.title}`,
-    description: `${info.portfolio.title}の制作物一覧ページです。`,
+    description: `${info.portfolio.title}の制作物一覧ページ。`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `Works | ${info.portfolio.title}`,
-      description: `${info.portfolio.title}の制作物一覧ページです。`,
+      description: `${info.portfolio.title}の制作物一覧ページ。`,
+      url: canonicalUrl,
     },
   };
 };

@@ -5,16 +5,22 @@ import { BaseLayout } from "@/components/layout/base-layout";
 import { BookItem } from "@/features/book/components/book-item";
 import { getAllBooks } from "@/features/book/lib/get-all-books";
 import { getInfo } from "@/features/profile/lib/get-info";
+import { getCanonicalUrl } from "@/lib/seo";
 
 export const generateMetadata = () => {
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl("/library");
 
   return {
     title: `Library | ${info.portfolio.title}`,
-    description: `${info.portfolio.title}の本一覧ページです。`,
+    description: `${info.portfolio.title}の本一覧ページ。`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `Library | ${info.portfolio.title}`,
-      description: `${info.portfolio.title}の本一覧ページです。`,
+      description: `${info.portfolio.title}の本一覧ページ。`,
+      url: canonicalUrl,
     },
   };
 };

@@ -2,10 +2,10 @@
 title: 個人ブログを作ったので初記事を書く
 createdAt: 2025-02-06
 updatedAt: 2025-02-13
-tags: 
-    - Blog
-    - Next.js
-description: 個人ブログを作成して最初の記事です。ポートフォリオサイトの制作について紹介しています。
+tags:
+  - Blog
+  - Next.js
+description: 個人ブログを作成して最初の記事。ポートフォリオサイトの制作について紹介する。
 type: InternalBlog
 ---
 
@@ -16,13 +16,13 @@ type: InternalBlog
 ## Azuma-ya.dev を支える技術
 
 - [TypeScript](https://www.typescriptlang.org/)
-必須である。もう型がなければ生きていけない体になってしまった。
+  必須である。もう型がなければ生きていけない体になってしまった。
 - [React](https://react.dev/)、[Next.js](https://nextjs.org/)
-メインフレームワーク。よく使っている。
+  メインフレームワーク。よく使っている。
 - [Cloudflare Pages](https://pages.cloudflare.com/)
-デプロイ先である。
+  デプロイ先である。
 - [unified.js](https://unifiedjs.com/)、[remark](https://github.com/remarkjs/remark?tab=readme-ov-file#syntax-tree)、[rehype](https://github.com/rehypejs/rehype)
-Markdownをhtmlに変換するために利用しています。今回は[React Markdwon](https://github.com/remarkjs/react-markdown)も利用した。
+  Markdownをhtmlに変換するために利用しています。今回は[React Markdwon](https://github.com/remarkjs/react-markdown)も利用した。
 
 ### Markdownの変換
 

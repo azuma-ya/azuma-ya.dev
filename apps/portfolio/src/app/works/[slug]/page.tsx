@@ -12,6 +12,7 @@ import { getAllWorks } from "@/features/work/lib/get-all-works";
 import { getWork } from "@/features/work/lib/get-work";
 import { getWorkThumbnailSrc } from "@/features/work/lib/thumbnail";
 import { getMetas } from "@/lib/meta";
+import { getCanonicalUrl, getPathname } from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -28,13 +29,18 @@ export const generateMetadata = async ({ params }: Props) => {
   }
 
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl(getPathname("works", slug));
 
   return {
     title: `${work.title} | ${info.portfolio.title}`,
     description: work.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${work.title} | ${info.portfolio.title}`,
       description: work.description,
+      url: canonicalUrl,
     },
   };
 };

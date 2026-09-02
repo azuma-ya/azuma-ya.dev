@@ -5,6 +5,7 @@ import { getAllBlogs } from "@/features/blog/lib/get-all-blogs";
 import { toGroupSortByYear } from "@/features/blog/lib/utils";
 import { getInfo } from "@/features/profile/lib/get-info";
 import { getTags } from "@/features/tag/lib/get-tags";
+import { getCanonicalUrl, getPathname } from "@/lib/seo";
 
 interface Props {
   params: Promise<{
@@ -16,13 +17,18 @@ export const generateMetadata = async ({ params }: Props) => {
   const { tag } = await params;
 
   const info = getInfo();
+  const canonicalUrl = getCanonicalUrl(getPathname("tags", tag));
 
   return {
     title: `${tag} | ${info.portfolio.title}`,
-    description: `${tag}でタグ付けられた記事一覧です。`,
+    description: `${tag}でタグ付けられた記事一覧。`,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${tag} | ${info.portfolio.title}`,
-      description: `${tag}でタグ付けられた記事一覧です。`,
+      description: `${tag}でタグ付けられた記事一覧。`,
+      url: canonicalUrl,
     },
   };
 };
